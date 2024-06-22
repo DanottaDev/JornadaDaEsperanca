@@ -1,0 +1,4 @@
+repository "Jornada da Esperança@ericksntz@cloud"
+  path "/"
+    br "/main"
+    co "/main"

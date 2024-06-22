@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Checkpoint
+  - FallDetector
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Wall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: 1Sky
+    uniqueID: 2178553371
+    locked: 0
+  - name: 2Cloud
+    uniqueID: 3525215943
+    locked: 0
+  - name: 3Background
+    uniqueID: 1326605095
+    locked: 0
+  - name: Ground
+    uniqueID: 2652122215
+    locked: 0
+  - name: Player
+    uniqueID: 2727412575
+    locked: 0
+  - name: 4Foreground
+    uniqueID: 431674255
+    locked: 0
