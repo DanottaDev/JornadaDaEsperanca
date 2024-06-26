@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Checkpoint
   - FallDetector
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -61,4 +62,7 @@ TagManager:
     locked: 0
   - name: 4Foreground
     uniqueID: 431674255
+    locked: 0
+  - name: UI
+    uniqueID: 2614242563
     locked: 0
