@@ -3,48 +3,58 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public float moveSpeed = 2f; // Velocidade de movimento da plataforma
-    public float moveDistance = 5f; // Distância que a plataforma irá se mover
-    public float disappearDelay = 2f; // Tempo até a plataforma desaparecer
+    public Transform targetPoint; // Ponto para onde a plataforma vai se mover
+    public float moveSpeed = 5f; // Velocidade de movimento da plataforma
+    public float returnDelay = 3f; // Tempo de espera antes da plataforma retornar ao ponto inicial
 
-    private bool isActivated = false;
-    private Vector3 initialPosition;
-    private Vector3 targetPosition;
-    private float startTime;
+    private bool moving; // Flag para controlar o movimento da plataforma
+    private Vector3 initialPosition; // Posição inicial da plataforma
+    private float timer; // Contador de tempo
 
-    void Start()
+    private void Start()
     {
-        initialPosition = transform.position;
-        targetPosition = initialPosition + Vector3.up * moveDistance;
+        initialPosition = transform.position; // Salvando a posição inicial da plataforma
     }
 
-    void Update()
+    private void Update()
     {
-        if (isActivated)
+        if (moving)
         {
-            float distCovered = (Time.time - startTime) * moveSpeed;
-            float fractionOfJourney = distCovered / moveDistance;
-            transform.position = Vector3.Lerp(initialPosition, targetPosition, fractionOfJourney);
+            // Movendo a plataforma em direção ao ponto alvo
+            transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime);
 
-            if (fractionOfJourney >= 1.0f)
+            // Verificando se a plataforma chegou ao ponto alvo
+            if (transform.position == targetPoint.position)
             {
-                StartCoroutine(DisappearAfterDelay());
+                moving = false; // Parando o movimento
+                timer = 0f; // Reiniciando o contador de tempo
+            }
+        }
+        else
+        {
+            // Contando o tempo para o retorno da plataforma
+            timer += Time.deltaTime;
+            if (timer >= returnDelay)
+            {
+                // Movendo a plataforma de volta para a posição inicial
+                transform.position = Vector3.MoveTowards(transform.position, initialPosition, moveSpeed * Time.deltaTime);
+
+                // Verificando se a plataforma chegou à posição inicial
+                if (transform.position == initialPosition)
+                {
+                    // Reiniciando as variáveis
+                    timer = 0f;
+                    moving = false;
+                }
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player") && !isActivated)
+        if (collision.gameObject.CompareTag("Player") && !moving)
         {
-            isActivated = true;
-            startTime = Time.time;
+            moving = true; // Iniciando o movimento quando o jogador pisa na plataforma
         }
-    }
-
-    private IEnumerator DisappearAfterDelay()
-    {
-        yield return new WaitForSeconds(disappearDelay);
-        Destroy(gameObject);
     }
 }
