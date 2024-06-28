@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FirstGearGames.SmoothCameraShaker;
 
 public class FallPlatform : MonoBehaviour
 {   
     Rigidbody2D rb;
     Vector2 defaultPos;
+    public ShakeData CameraShake;
 
     [SerializeField] float fallDelay, respawnTime;
 
@@ -18,7 +20,8 @@ public class FallPlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
     if (collision.gameObject.tag == "Player")
-    {
+    {   
+        CameraShakerHandler.Shake(CameraShake);
         StartCoroutine("PlatformDrop");
         }
     }
