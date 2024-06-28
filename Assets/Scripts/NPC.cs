@@ -13,8 +13,8 @@ public class NPC : MonoBehaviour
     public float wordSpeed;
     public bool playerIsClose;
     public GameObject interactionButton;
-    private Animator animator;
-    private PlayerController playerController;  // Adicione uma referência ao script PlayerController
+    private Animator animator;  // Adicione uma referência para o Animator
+    private PlayerController playerController;  // Adicione uma referência para o PlayerController
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,8 @@ public class NPC : MonoBehaviour
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
         interactionButton.SetActive(false);
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();  // Inicialize o Animator
+        playerController = FindObjectOfType<PlayerController>();  // Encontre o PlayerController na cena
     }
 
     // Update is called once per frame
@@ -32,11 +33,17 @@ public class NPC : MonoBehaviour
         {
             if (dialoguePanel.activeInHierarchy)
             {
-                EndInteraction();
+                zeroText();
+                animator.SetBool("IsInteracting", false);  // Pare a animação de interação
+                playerController.enabled = true;  // Reative o PlayerController
             }
             else
             {
-                StartInteraction();
+                dialoguePanel.SetActive(true);
+                animator.SetBool("IsInteracting", true);  // Inicie a animação de interação
+                playerController.StopMovement();  // Pare o movimento do jogador
+                playerController.enabled = false;  // Desative o PlayerController
+                StartCoroutine(Typing());
             }
         }
 
@@ -59,11 +66,13 @@ public class NPC : MonoBehaviour
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
+        animator.SetBool("IsInteracting", false);  // Pare a animação de interação
+        playerController.enabled = true;  // Reative o PlayerController
     }
 
     IEnumerator Typing()
     {
-        foreach (char letter in dialogue[index].ToCharArray())
+        foreach(char letter in dialogue[index].ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
@@ -82,7 +91,7 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            EndInteraction();
+            zeroText();
         }
     }
 
@@ -92,7 +101,6 @@ public class NPC : MonoBehaviour
         {
             playerIsClose = true;
             interactionButton.SetActive(true);
-            playerController = coll.GetComponent<PlayerController>();  // Obtenha a referência ao PlayerController do jogador
         }
     }
 
@@ -102,27 +110,6 @@ public class NPC : MonoBehaviour
         {
             playerIsClose = false;
             interactionButton.SetActive(false);
-        }
-    }
-
-    private void StartInteraction()
-    {
-        dialoguePanel.SetActive(true);
-        animator.SetBool("IsInteracting", true);  // Inicie a animação de interação
-        StartCoroutine(Typing());
-        if (playerController != null)
-        {
-            playerController.enabled = false;  // Desative o controle de movimento do jogador
-        }
-    }
-
-    private void EndInteraction()
-    {
-        zeroText();
-        animator.SetBool("IsInteracting", false);  // Pare a animação de interação
-        if (playerController != null)
-        {
-            playerController.enabled = true;  // Reative o controle de movimento do jogador
         }
     }
 }
