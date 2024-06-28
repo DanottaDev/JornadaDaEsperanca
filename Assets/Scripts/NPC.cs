@@ -12,12 +12,17 @@ public class NPC : MonoBehaviour
     public GameObject continueButton;
     public float wordSpeed;
     public bool playerIsClose;
+    public GameObject interactionButton;
+    private Animator animator;
+    private PlayerController playerController;  // Adicione uma referência ao script PlayerController
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
+        interactionButton.SetActive(false);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,17 +32,25 @@ public class NPC : MonoBehaviour
         {
             if (dialoguePanel.activeInHierarchy)
             {
-                zeroText();
+                EndInteraction();
             }
             else
             {
-                dialoguePanel.SetActive(true);
-                StartCoroutine(Typing());
+                StartInteraction();
             }
         }
+
         if (dialogueText.text == dialogue[index])
         {
             continueButton.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                NextLine();
+            }
+        }
+        else
+        {
+            continueButton.SetActive(false);
         }
     }
 
@@ -50,7 +63,7 @@ public class NPC : MonoBehaviour
 
     IEnumerator Typing()
     {
-        foreach(char letter in dialogue[index].ToCharArray())
+        foreach (char letter in dialogue[index].ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
@@ -59,7 +72,6 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-
         continueButton.SetActive(false);
 
         if (index < dialogue.Length - 1)
@@ -70,7 +82,7 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            zeroText();
+            EndInteraction();
         }
     }
 
@@ -79,7 +91,8 @@ public class NPC : MonoBehaviour
         if (coll.CompareTag("Player"))
         {
             playerIsClose = true;
-            zeroText();
+            interactionButton.SetActive(true);
+            playerController = coll.GetComponent<PlayerController>();  // Obtenha a referência ao PlayerController do jogador
         }
     }
 
@@ -88,6 +101,28 @@ public class NPC : MonoBehaviour
         if (coll.CompareTag("Player"))
         {
             playerIsClose = false;
+            interactionButton.SetActive(false);
+        }
+    }
+
+    private void StartInteraction()
+    {
+        dialoguePanel.SetActive(true);
+        animator.SetBool("IsInteracting", true);  // Inicie a animação de interação
+        StartCoroutine(Typing());
+        if (playerController != null)
+        {
+            playerController.enabled = false;  // Desative o controle de movimento do jogador
+        }
+    }
+
+    private void EndInteraction()
+    {
+        zeroText();
+        animator.SetBool("IsInteracting", false);  // Pare a animação de interação
+        if (playerController != null)
+        {
+            playerController.enabled = true;  // Reative o controle de movimento do jogador
         }
     }
 }
