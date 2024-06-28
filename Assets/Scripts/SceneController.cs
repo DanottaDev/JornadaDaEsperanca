@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,14 +22,27 @@ public class SceneController : MonoBehaviour
 
     public void NextLevel()
     {
-        StartCoroutine(LoadLevel());
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator LoadLevel()
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine(LoadLevel(sceneName));
+    }
+
+    IEnumerator LoadLevel(int sceneIndex)
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(sceneIndex);
+        transitionAnim.SetTrigger("Start");
+    }
+
+    IEnumerator LoadLevel(string sceneName)
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync(sceneName);
         transitionAnim.SetTrigger("Start");
     }
 }
