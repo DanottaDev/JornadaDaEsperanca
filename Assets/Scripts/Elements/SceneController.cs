@@ -6,8 +6,6 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
     [SerializeField] Animator transitionAnim;
-    public GameObject tutorialCanvas;  // Adicionado: referência ao Canvas do tutorial
-    public float tutorialDisplayTime = 5f;  // Tempo que o tutorial será exibido
 
     void Awake()
     {
@@ -38,12 +36,6 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(sceneIndex);
         transitionAnim.SetTrigger("Start");
-        
-        // Aguarde até a nova cena ser carregada
-        yield return new WaitForSeconds(1);
-
-        // Exiba o Canvas do tutorial
-        ShowTutorialCanvas();
     }
 
     IEnumerator LoadLevel(string sceneName)
@@ -52,29 +44,5 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(sceneName);
         transitionAnim.SetTrigger("Start");
-        
-        // Aguarde até a nova cena ser carregada
-        yield return new WaitForSeconds(1);
-
-        // Exiba o Canvas do tutorial
-        ShowTutorialCanvas();
-    }
-
-    void ShowTutorialCanvas()
-    {
-        if (tutorialCanvas != null)
-        {
-            tutorialCanvas.SetActive(true);
-            StartCoroutine(DisableCanvasAfterTime(tutorialDisplayTime));
-        }
-    }
-
-    IEnumerator DisableCanvasAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        if (tutorialCanvas != null)
-        {
-            tutorialCanvas.SetActive(false);
-        }
     }
 }

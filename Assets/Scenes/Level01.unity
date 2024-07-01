@@ -399,8 +399,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 898039596}
-  tutorialCanvas: {fileID: 873331949}
-  tutorialDisplayTime: 10
 --- !u!4 &34213932
 Transform:
   m_ObjectHideFlags: 0
