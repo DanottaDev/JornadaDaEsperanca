@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ButterflyMovement : MonoBehaviour
 {
-    public float speed = 2f;             // Velocidade da borboleta
-    public float distance = 5f;          // Distância de um lado para o outro
-    private Vector3 startPosition;       // Posição inicial da borboleta
+    public float speed = 2f;           // Velocidade da borboleta
+    public float radius = 5f;          // Raio do movimento circular
+    private Vector3 startPosition;     // Posição inicial da borboleta
 
     void Start()
     {
@@ -15,9 +15,10 @@ public class ButterflyMovement : MonoBehaviour
 
     void Update()
     {
-        // Calcula a nova posição usando uma função seno para movimento suave
+        // Calcula a nova posição usando funções seno e cosseno para movimento circular
         Vector3 newPosition = startPosition;
-        newPosition.x += Mathf.Sin(Time.time * speed) * distance;
+        newPosition.x += Mathf.Cos(Time.time * speed) * radius;
+        newPosition.y += Mathf.Sin(Time.time * speed) * radius;
         transform.position = newPosition;
     }
 }
