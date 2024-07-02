@@ -14,6 +14,7 @@ public class Collision : MonoBehaviour
     public bool onRightWall;
     public bool onLeftWall;
     public int wallSide;
+    public ParticleSystem dust;
 
     [Space]
 

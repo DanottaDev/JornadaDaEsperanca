@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 1f; // Tempo de espera entre dashes
     public GameObject fallDetector; // Detector de queda
     public ShakeData DashCameraShake; // Dados do shake da câmera durante o dash
+    public ParticleSystem dust;
 
     // Variáveis Privadas
     private bool isDashing = false; // Flag para saber se está dashing
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         if (collision.onGround)
         {
             coyoteTimeCounter = coyoteTime;
+            
         }
         else
         {
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
         // Lógica de jump buffer
         if (Input.GetButtonDown("Jump"))
         {
+            dust.Play();
             jumpBufferCounter = jumpBufferTime;
         }
         else
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
         else if (dir.x > 0)
         {
             FlipPlayer(2.5f);
+
         }
 
         // Atualiza posição do detector de queda
