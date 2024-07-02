@@ -1459,7 +1459,7 @@ Transform:
   m_GameObject: {fileID: 156214976}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 182.09, y: -4, z: 0}
+  m_LocalPosition: {x: -4.5, y: -4.055, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1801,6 +1801,8 @@ MonoBehaviour:
   - {fileID: 146970175}
   cheio: {fileID: 623849741, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   vazio: {fileID: 381300419, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
+  player: {fileID: 156214978}
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &159060346
 GameObject:
   m_ObjectHideFlags: 0
@@ -8905,7 +8907,7 @@ Transform:
   m_GameObject: {fileID: 562717605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000045776367, y: 0.02591002, z: 0}
+  m_LocalPosition: {x: -2.96068, y: -0.0015898943, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17553,7 +17555,7 @@ Transform:
   m_GameObject: {fileID: 888849467}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 182.08995, y: -1.02591, z: -10}
+  m_LocalPosition: {x: -1.53932, y: -1.0534099, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
