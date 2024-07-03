@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dust;
 
     // Variáveis Privadas
+    private float originalSpeed;
+    private float originalJumpForce;
     private bool isDashing = false; // Flag para saber se está dashing
     private float dashTimer = 0f; // Temporizador do dash
     private float cooldownTimer = 0f; // Temporizador de cooldown do dash
@@ -25,8 +27,8 @@ public class PlayerController : MonoBehaviour
 
     // Referências de Componentes
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private int speed = 5;
-    [SerializeField] private float jumpForce = 50;
+    [SerializeField] public int speed = 5; // Tornar público
+    [SerializeField] public float jumpForce = 50; // Tornar público
     [SerializeField] private TrailRenderer tr;
     private Animator animator;
     private Vector3 respawnPoint;
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         respawnPoint = transform.position; // Ponto de respawn inicial
+        originalSpeed = speed;
+        originalJumpForce = jumpForce;
     }
 
     private void Update()
@@ -173,7 +177,13 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         rb.velocity = Vector2.zero; // Reseta a velocidade após o dash
     }
-    
+
+    public void ResetSpeedAndJump()
+    {
+        speed = (int)originalSpeed; // Cast explícito para int
+        jumpForce = originalJumpForce;
+    }
+
     public void StopMovement()
     {
         rb.velocity = Vector2.zero;

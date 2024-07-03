@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -38,15 +36,15 @@ public class UIManager : MonoBehaviour
                 break;
             case SymptomTrigger.SymptomType.Fatigue:
                 symptomIcon.sprite = fatigueIcon;
-                symptomText.text = "Leah sente Fadiga!";
+                symptomText.text = "Leah se sente fraca";
                 break;
             case SymptomTrigger.SymptomType.BonePain:
                 symptomIcon.sprite = bonePainIcon;
-                symptomText.text = "Leah está com dor nos ossos!";
+                symptomText.text = "Leah está com dor nos ossos";
                 break;
             case SymptomTrigger.SymptomType.BreathingDifficulty:
                 symptomIcon.sprite = breathingDifficultyIcon;
-                symptomText.text = "Leah sente dificuldade para respirar!";
+                symptomText.text = "Leah sente dificuldade para Respirar!";
                 break;
         }
 
@@ -60,4 +58,3 @@ public class UIManager : MonoBehaviour
         symptomText.gameObject.SetActive(false);
     }
 }
-
