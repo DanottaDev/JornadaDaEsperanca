@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 1f; // Tempo de espera entre dashes
     public GameObject fallDetector; // Detector de queda
     public ShakeData DashCameraShake; // Dados do shake da câmera durante o dash
-    public ParticleSystem dust;
+
+    public HealthBar healthBar; // Adicionando referência para HealthBar
+    public int maxHealth = 5; // Saúde máxima do jogador
+    private int currentHealth; // Saúde atual do jogador
 
     // Variáveis Privadas
     private float originalSpeed;
@@ -40,6 +43,9 @@ public class PlayerController : MonoBehaviour
         respawnPoint = transform.position; // Ponto de respawn inicial
         originalSpeed = speed;
         originalJumpForce = jumpForce;
+
+        currentHealth = maxHealth; // Inicializando a saúde atual
+        healthBar.SetMaxHealth(maxHealth); // Configurando a barra de vida com a saúde máxima
     }
 
     private void Update()
@@ -60,7 +66,6 @@ public class PlayerController : MonoBehaviour
         if (collision.onGround)
         {
             coyoteTimeCounter = coyoteTime;
-            
         }
         else
         {
@@ -70,7 +75,6 @@ public class PlayerController : MonoBehaviour
         // Lógica de jump buffer
         if (Input.GetButtonDown("Jump"))
         {
-            dust.Play();
             jumpBufferCounter = jumpBufferTime;
         }
         else
@@ -98,7 +102,6 @@ public class PlayerController : MonoBehaviour
         else if (dir.x > 0)
         {
             FlipPlayer(2.5f);
-
         }
 
         // Atualiza posição do detector de queda
@@ -176,6 +179,34 @@ public class PlayerController : MonoBehaviour
         tr.emitting = false; // Desativa o rastro após o dash
         isDashing = false;
         rb.velocity = Vector2.zero; // Reseta a velocidade após o dash
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            ResetPlayerPosition();
+        }
+        healthBar.SetHealth(currentHealth);
+    }
+
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
+    }
+
+    private void ResetPlayerPosition()
+    {
+        transform.position = respawnPoint; // Reseta a posição do jogador ao ponto de respawn
+        currentHealth = maxHealth; // Reseta a saúde do jogador para o valor máximo
+        healthBar.SetHealth(currentHealth); // Atualiza a barra de vida
     }
 
     public void ResetSpeedAndJump()

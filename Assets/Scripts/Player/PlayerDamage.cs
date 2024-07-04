@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    public HeartSystem heartSystem;
     public PlayerController playerController;
     public int damage;
     public Animator animator;
-    void OnCollisionEnter2D(Collision2D collision){
-        if (collision.gameObject.CompareTag("Player"))
+    public float invulnerabilityDuration = 1.0f; // Tempo de invulnerabilidade em segundos
+    private bool isInvulnerable = false;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !isInvulnerable)
         {
-            heartSystem.vida -= damage;
+            playerController.TakeDamage(damage);
             animator.SetTrigger("isDamage");
+            StartCoroutine(InvulnerabilityCooldown());
         }
+    }
+
+    private IEnumerator InvulnerabilityCooldown()
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(invulnerabilityDuration);
+        isInvulnerable = false;
     }
 }

@@ -25,33 +25,34 @@ public class SymptomEffectController : MonoBehaviour
         switch (symptom)
         {
             case SymptomTrigger.SymptomType.Fever:
-                Color feverColor;
+                /*Color feverColor;
                 if (ColorUtility.TryParseHtmlString("#FF8888", out feverColor))
                 {
                     playerSprite.color = feverColor; // Change color to the specified hexadecimal color for fever
-                }
+                }*/
                 feverEffect.Play();
                 break;
             case SymptomTrigger.SymptomType.Fatigue:
-                playerSprite.color = Color.yellow; // Change color to yellow for fatigue
+                //playerSprite.color = Color.yellow; // Change color to yellow for fatigue
                 fatigueEffect.Play();
                 playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
                 break;
             case SymptomTrigger.SymptomType.BonePain:
-                Color lightGrayColor;
+                /*Color lightGrayColor;
                 if (ColorUtility.TryParseHtmlString("#C0C0C0", out lightGrayColor))
                 {
                     playerSprite.color = lightGrayColor; // Change color to light gray (hexadecimal #C0C0C0)
-                }
+                }*/
                 playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
                 playerController.jumpForce = originalJumpForce * 0.75f; // Reduce jump force by 25%
                 break;
             case SymptomTrigger.SymptomType.BreathingDifficulty:
-                Color breathingDifficultyColor;
+                /*Color breathingDifficultyColor;
                 if (ColorUtility.TryParseHtmlString("#CFBBE5", out breathingDifficultyColor))
                 {
                     playerSprite.color = breathingDifficultyColor; // Change color to the specified hexadecimal color for breathing difficulty
-                }
+                }*/
+                playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
                 break;
         }
     }
