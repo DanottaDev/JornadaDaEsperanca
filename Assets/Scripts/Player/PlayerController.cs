@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 5; // Saúde máxima do jogador
     private int currentHealth; // Saúde atual do jogador
 
+    public ParticleSystem invulnerabilityParticles; // Referência ao sistema de partículas de invulnerabilidade
+
     // Variáveis Privadas
     private float originalSpeed;
     private float originalJumpForce;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimeCounter; // Contador de tempo de coyote
     private float jumpBufferTime = 0.2f; // Tempo de buffer em segundos
     private float jumpBufferCounter; // Contador de tempo de buffer
+    private bool isInvulnerable = false; // Flag para invulnerabilidade
 
     // Referências de Componentes
     [SerializeField] private Rigidbody2D rb;
@@ -46,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth; // Inicializando a saúde atual
         healthBar.SetMaxHealth(maxHealth); // Configurando a barra de vida com a saúde máxima
+
+        invulnerabilityParticles.Stop(); // Certifique-se de que as partículas estejam desativadas no início
     }
 
     private void Update()
@@ -183,13 +188,16 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (!isInvulnerable)
         {
-            currentHealth = 0;
-            ResetPlayerPosition();
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                ResetPlayerPosition();
+            }
+            healthBar.SetHealth(currentHealth);
         }
-        healthBar.SetHealth(currentHealth);
     }
 
     public void Heal(int amount)
@@ -200,6 +208,22 @@ public class PlayerController : MonoBehaviour
             currentHealth = maxHealth;
         }
         healthBar.SetHealth(currentHealth);
+    }
+
+    public void StartInvulnerability(float duration)
+    {
+        StartCoroutine(InvulnerabilityCooldown(duration));
+    }
+
+    private IEnumerator InvulnerabilityCooldown(float duration)
+    {
+        isInvulnerable = true;
+        invulnerabilityParticles.Play(); // Ativa o sistema de partículas
+
+        yield return new WaitForSeconds(duration);
+
+        isInvulnerable = false;
+        invulnerabilityParticles.Stop(); // Desativa o sistema de partículas
     }
 
     private void ResetPlayerPosition()
