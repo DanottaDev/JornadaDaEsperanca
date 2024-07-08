@@ -12,11 +12,12 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 1f; // Tempo de espera entre dashes
     public GameObject fallDetector; // Detector de queda
     public ShakeData DashCameraShake; // Dados do shake da câmera durante o dash
-
     public HealthBar healthBar; // Adicionando referência para HealthBar
     public int maxHealth = 5; // Saúde máxima do jogador
-    
     public ParticleSystem invulnerabilityParticles; // Referência ao sistema de partículas de invulnerabilidade
+    public float attackRadius = 1f; // Raio de ataque
+    public LayerMask enemyLayer; // Layer dos inimigos
+    public int attackDamage = 1; // Dano do ataque
 
     // Variáveis Privadas
     private float originalSpeed;
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Attack();
+
         if (isDashing)
         {
             return; // Se estiver dashing, não processa outras ações
@@ -121,6 +124,7 @@ public class PlayerController : MonoBehaviour
 
         // Reduz o tempo de cooldown do dash
         cooldownTimer -= Time.deltaTime;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -187,6 +191,27 @@ public class PlayerController : MonoBehaviour
         tr.emitting = false; // Desativa o rastro após o dash
         isDashing = false;
         rb.velocity = Vector2.zero; // Reseta a velocidade após o dash
+    }
+    private void Attack()
+    {
+    if (Input.GetKeyDown(KeyCode.Z))
+    {
+        animator.SetTrigger("isAttacking");
+
+        // Detecta inimigos no raio de ataque
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayer);
+
+        // Dá dano aos inimigos detectados
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+        }
+    }
+    }
+    private void OnDrawGizmosSelected()
+    {
+    Gizmos.color = Color.red;
+    Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 
     public void TakeDamage(int damage)
