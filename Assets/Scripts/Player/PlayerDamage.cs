@@ -6,7 +6,6 @@ public class DamagePlayer : MonoBehaviour
 {
     public PlayerController playerController;
     public int damage;
-    public Animator animator;
     public float invulnerabilityDuration = 1.0f; // Tempo de invulnerabilidade em segundos
     private bool isInvulnerable = false;
 
@@ -15,7 +14,6 @@ public class DamagePlayer : MonoBehaviour
         if (collision.CompareTag("Player") && !isInvulnerable)
         {
             playerController.TakeDamage(damage);
-            animator.SetTrigger("isDamage");
             StartCoroutine(InvulnerabilityCooldown());
         }
     }

@@ -15,8 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public HealthBar healthBar; // Adicionando referência para HealthBar
     public int maxHealth = 5; // Saúde máxima do jogador
-    private int currentHealth; // Saúde atual do jogador
-
+    
     public ParticleSystem invulnerabilityParticles; // Referência ao sistema de partículas de invulnerabilidade
 
     // Variáveis Privadas
@@ -29,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimeCounter; // Contador de tempo de coyote
     private float jumpBufferTime = 0.2f; // Tempo de buffer em segundos
     private float jumpBufferCounter; // Contador de tempo de buffer
+    private int currentHealth; // Saúde atual do jogador
+    private SpriteRenderer spriteRenderer;
     private bool isInvulnerable = false; // Flag para invulnerabilidade
 
     // Referências de Componentes
@@ -38,12 +39,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
     private Animator animator;
     private Vector3 respawnPoint;
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         respawnPoint = transform.position; // Ponto de respawn inicial
+        spriteRenderer = GetComponent<SpriteRenderer>();
         originalSpeed = speed;
         originalJumpForce = jumpForce;
 
@@ -187,19 +190,45 @@ public class PlayerController : MonoBehaviour
     }
 
     public void TakeDamage(int damage)
+    {      
+    if (!isInvulnerable)
     {
-        if (!isInvulnerable)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
-            currentHealth -= damage;
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-                ResetPlayerPosition();
-            }
-            healthBar.SetHealth(currentHealth);
+            currentHealth = 0;
+            ResetPlayerPosition();
         }
-    }
+        healthBar.SetHealth(currentHealth);
+        healthBar.FlashHealthBar(); // Chama o efeito de flash da barra de vida
 
+        // Inicia o efeito de piscar vermelho
+        StartCoroutine(FlashRed());
+    }
+    }
+    private IEnumerator FlashRed()
+    {
+    // Salva a cor original do sprite
+    Color originalColor = spriteRenderer.color;
+
+    // Define a cor vermelha
+    spriteRenderer.color = Color.red;
+
+    // Espera um breve momento
+    yield return new WaitForSeconds(0.1f);
+
+    // Restaura a cor original
+    spriteRenderer.color = originalColor;
+
+    // Repete o efeito de piscar algumas vezes
+    for (int i = 0; i < 3; i++)
+    {
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = originalColor;
+    }
+    }
     public void Heal(int amount)
     {
         currentHealth += amount;
