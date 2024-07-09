@@ -171,7 +171,6 @@ public class PlayerController : MonoBehaviour
     {
         return isDashing; // Retorna se o jogador está dashing ou não
     }
-
     private IEnumerator Dash(float x, float y)
     {
         isDashing = true;

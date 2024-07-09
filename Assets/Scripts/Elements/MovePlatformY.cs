@@ -4,38 +4,54 @@ using UnityEngine;
 
 public class MovePlatformY : MonoBehaviour
 {
-    public int velocidade;
-    public Transform pontoA, pontoB;
+    public float speed; // Velocidade da plataforma
+    public Transform pontoA, pontoB; // Pontos entre os quais a plataforma se moverá
 
-    Vector2 targetPos;
+    private Vector3 targetPos; // Posição alvo para a plataforma
+    private GameObject player; // Referência ao jogador
 
-    void Start ()
+    void Start()
     {
-        targetPos = pontoB.position;
+        targetPos = pontoB.position; // Inicialmente, a plataforma se moverá para o pontoB
     }
+
     void Update()
     {
-        if (Vector2.Distance(transform.position, pontoA.position) < .1f) targetPos = pontoB.position;
-        
-        if (Vector2.Distance(transform.position, pontoB.position) < .1f) targetPos = pontoA.position;
+        // Se a plataforma está perto do pontoA, muda a posição alvo para pontoB
+        if (Vector3.Distance(transform.position, pontoA.position) < 0.1f)
+            targetPos = pontoB.position;
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, velocidade * Time.deltaTime);
-        
+        // Se a plataforma está perto do pontoB, muda a posição alvo para pontoA
+        if (Vector3.Distance(transform.position, pontoB.position) < 0.1f)
+            targetPos = pontoA.position;
+
+        // Move a plataforma em direção à posição alvo
+        Vector3 previousPosition = transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        Vector3 movement = transform.position - previousPosition;
+
+        // Se o jogador está na plataforma, move o jogador junto com a plataforma
+        if (player != null)
+        {
+            player.transform.position += movement;
+        }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Se o objeto colidido tem a tag "Player"
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.SetParent(transform);
-            
+            player = collision.gameObject; // Armazena a referência ao jogador
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        // Se o objeto colidido tem a tag "Player"
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.SetParent(null);
+            player = null; // Remove a referência ao jogador
         }
     }
 }
