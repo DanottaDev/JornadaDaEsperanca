@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour
     public float attackRadius = 1f; // Raio de ataque
     public LayerMask enemyLayer; // Layer dos inimigos
     public int attackDamage = 1; // Dano do ataque
+    public AudioClip dashSound;
 
     // Variáveis Privadas
     private float originalSpeed;
     private float originalJumpForce;
+    private bool isWalking = false;
     private bool isDashing = false; // Flag para saber se está dashing
     private float dashTimer = 0f; // Temporizador do dash
     private float cooldownTimer = 0f; // Temporizador de cooldown do dash
@@ -39,23 +41,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float jumpForce = 50; // Tornar público
     [SerializeField] private TrailRenderer tr;
     private Animator animator;
+    private AudioSource audioSource;
     private Vector3 respawnPoint;
-    
-
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        respawnPoint = transform.position; // Ponto de respawn inicial
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalSpeed = speed;
-        originalJumpForce = jumpForce;
+    rb = GetComponent<Rigidbody2D>();
+    animator = GetComponent<Animator>();
+    respawnPoint = transform.position;
+    spriteRenderer = GetComponent<SpriteRenderer>();
+    originalSpeed = speed;
+    originalJumpForce = jumpForce;
 
-        currentHealth = maxHealth; // Inicializando a saúde atual
-        healthBar.SetMaxHealth(maxHealth); // Configurando a barra de vida com a saúde máxima
+    currentHealth = maxHealth;
+    healthBar.SetMaxHealth(maxHealth);
 
-        invulnerabilityParticles.Stop(); // Certifique-se de que as partículas estejam desativadas no início
+    invulnerabilityParticles.Stop();
+
+    audioSource = GetComponent<AudioSource>(); // Adicione esta linha
     }
+
 
     private void Update()
     {
@@ -72,6 +76,22 @@ public class PlayerController : MonoBehaviour
         Vector2 dir = new Vector2(x, rb.velocity.y);
 
         Walk(dir);
+
+        // Controle de som dos passos
+        if (x != 0 && collision.onGround)
+        {
+        if (!isWalking)
+        {
+            isWalking = true;
+        }
+        }
+        else
+        {
+        if (isWalking)
+        {
+            isWalking = false;
+        }
+        }
 
         // Lógica de coyote time
         if (collision.onGround)
@@ -145,13 +165,11 @@ public class PlayerController : MonoBehaviour
         scale.x = direction;
         transform.localScale = scale; // Inverte a escala no eixo x para flipar o jogador
     }
-
     private void Walk(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed, rb.velocity.y); // Movimento horizontal
     }
-
-    private void Jump()
+        private void Jump()
     {
         if ((collision.onGround || coyoteTimeCounter > 0) && jumpBufferCounter > 0)
         {
@@ -179,6 +197,8 @@ public class PlayerController : MonoBehaviour
 
         Vector2 dashDirection = new Vector2(x, y).normalized;
         tr.emitting = true; // Ativa o rastro durante o dash
+
+        audioSource.PlayOneShot(dashSound);
 
         while (dashTimer < dashDuration)
         {

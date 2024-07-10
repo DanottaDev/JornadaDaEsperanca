@@ -39,19 +39,19 @@ public class UIManager : MonoBehaviour
         {
             case SymptomTrigger.SymptomType.Fever:
                 symptomIcon.sprite = feverIcon;
-                symptomText.text = "Leah está com Febre!";
+                symptomText.text = "Leah: Acho que estou com febre";
                 break;
             case SymptomTrigger.SymptomType.Fatigue:
                 symptomIcon.sprite = fatigueIcon;
-                symptomText.text = "Leah se sente fraca";
+                symptomText.text = "Leah: Não estou muito bem, estou me sentido fraca";
                 break;
             case SymptomTrigger.SymptomType.BonePain:
                 symptomIcon.sprite = bonePainIcon;
-                symptomText.text = "Leah está com dor nos ossos";
+                symptomText.text = "Leah: Estou sentindo muita dor nos ossos!";
                 break;
             case SymptomTrigger.SymptomType.BreathingDifficulty:
                 symptomIcon.sprite = breathingDifficultyIcon;
-                symptomText.text = "Leah sente dificuldade para Respirar!";
+                symptomText.text = "Leah: Estou com dificuldades para respirar!";
                 break;
         }
 
