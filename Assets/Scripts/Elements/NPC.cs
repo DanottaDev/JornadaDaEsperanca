@@ -1,50 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
-    public Text dialogueText;
+    public TextMeshProUGUI dialogueText;
     public string[] dialogue;
     private int index;
     public GameObject continueButton;
     public float wordSpeed;
     public bool playerIsClose;
     public GameObject interactionButton;
-    private Animator animator;  // Adicione uma referência para o Animator
-    private PlayerController playerController;  // Adicione uma referência para o PlayerController
+    private Animator animator;
+    private PlayerController playerController;
+    private bool isDialogueActive = false; // Variável para controlar se o diálogo está ativo
 
-    // Start is called before the first frame update
     void Start()
     {
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
         interactionButton.SetActive(false);
-        animator = GetComponent<Animator>();  // Inicialize o Animator
-        playerController = FindObjectOfType<PlayerController>();  // Encontre o PlayerController na cena
+        animator = GetComponent<Animator>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+        if (Input.GetKeyDown(KeyCode.E) && playerIsClose && !isDialogueActive) // Verifica se o diálogo não está ativo
         {
-            if (dialoguePanel.activeInHierarchy)
-            {
-                zeroText();
-                animator.SetBool("IsInteracting", false);  // Pare a animação de interação
-                playerController.enabled = true;  // Reative o PlayerController
-            }
-            else
-            {
-                dialoguePanel.SetActive(true);
-                animator.SetBool("IsInteracting", true);  // Inicie a animação de interação
-                playerController.StopMovement();  // Pare o movimento do jogador
-                playerController.enabled = false;  // Desative o PlayerController
-                StartCoroutine(Typing());
-            }
+            StartDialogue();
         }
 
         if (dialogueText.text == dialogue[index])
@@ -61,18 +46,29 @@ public class NPC : MonoBehaviour
         }
     }
 
+    void StartDialogue()
+    {
+        isDialogueActive = true; // Marca o diálogo como ativo
+        dialoguePanel.SetActive(true);
+        animator.SetBool("IsInteracting", true);
+        playerController.StopMovement();
+        playerController.enabled = false;
+        StartCoroutine(Typing());
+    }
+
     public void zeroText()
     {
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
-        animator.SetBool("IsInteracting", false);  // Pare a animação de interação
-        playerController.enabled = true;  // Reative o PlayerController
+        animator.SetBool("IsInteracting", false);
+        playerController.enabled = true;
+        isDialogueActive = false; // Marca o diálogo como não ativo ao cancelar
     }
 
     IEnumerator Typing()
     {
-        foreach(char letter in dialogue[index].ToCharArray())
+        foreach (char letter in dialogue[index].ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
