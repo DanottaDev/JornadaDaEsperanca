@@ -1,4 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -8,11 +12,9 @@ public class NPC : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public string[] dialogue;
     private int index;
-    public GameObject continueButton;
     public float wordSpeed;
     public bool playerIsClose;
     public GameObject interactionButton;
-    private Animator animator;
     private PlayerController playerController;
     private bool isDialogueActive = false; // Variável para controlar se o diálogo está ativo
 
@@ -21,7 +23,6 @@ public class NPC : MonoBehaviour
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
         interactionButton.SetActive(false);
-        animator = GetComponent<Animator>();
         playerController = FindObjectOfType<PlayerController>();
     }
 
@@ -34,7 +35,6 @@ public class NPC : MonoBehaviour
 
         if (dialogueText.text == dialogue[index])
         {
-            continueButton.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 NextLine();
@@ -42,7 +42,6 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            continueButton.SetActive(false);
         }
     }
 
@@ -50,7 +49,6 @@ public class NPC : MonoBehaviour
     {
         isDialogueActive = true; // Marca o diálogo como ativo
         dialoguePanel.SetActive(true);
-        animator.SetBool("IsInteracting", true);
         playerController.StopMovement();
         playerController.enabled = false;
         StartCoroutine(Typing());
@@ -61,7 +59,6 @@ public class NPC : MonoBehaviour
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
-        animator.SetBool("IsInteracting", false);
         playerController.enabled = true;
         isDialogueActive = false; // Marca o diálogo como não ativo ao cancelar
     }
@@ -77,7 +74,6 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-        continueButton.SetActive(false);
 
         if (index < dialogue.Length - 1)
         {
