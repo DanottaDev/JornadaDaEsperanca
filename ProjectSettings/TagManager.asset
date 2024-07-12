@@ -9,6 +9,7 @@ TagManager:
   - FallDetector
   - NPC
   - PowerUp
+  - Enemy
   layers:
   - Default
   - TransparentFX

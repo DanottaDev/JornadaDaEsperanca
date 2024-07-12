@@ -13,8 +13,12 @@ public class DamagePlayer : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !isInvulnerable)
         {
-            playerController.TakeDamage(damage);
-            StartCoroutine(InvulnerabilityCooldown());
+            PlayerController playerController = collision.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.TakeDamage(damage);
+                StartCoroutine(InvulnerabilityCooldown());
+            }
         }
     }
 

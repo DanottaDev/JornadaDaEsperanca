@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public float attackRadius = 1f; // Raio de ataque
     public LayerMask enemyLayer; // Layer dos inimigos
     public int attackDamage = 1; // Dano do ataque
-    public AudioClip dashSound;
 
     // Variáveis Privadas
     private float originalSpeed;
@@ -41,25 +40,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float jumpForce = 50; // Tornar público
     [SerializeField] private TrailRenderer tr;
     private Animator animator;
-    private AudioSource audioSource;
     private Vector3 respawnPoint;
+    
     private void Start()
     {
-    rb = GetComponent<Rigidbody2D>();
-    animator = GetComponent<Animator>();
-    respawnPoint = transform.position;
-    spriteRenderer = GetComponent<SpriteRenderer>();
-    originalSpeed = speed;
-    originalJumpForce = jumpForce;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        respawnPoint = transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalSpeed = speed;
+        originalJumpForce = jumpForce;
 
-    currentHealth = maxHealth;
-    healthBar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
 
-    invulnerabilityParticles.Stop();
-
-    audioSource = GetComponent<AudioSource>(); // Adicione esta linha
+        invulnerabilityParticles.Stop();
     }
-
 
     private void Update()
     {
@@ -80,17 +76,17 @@ public class PlayerController : MonoBehaviour
         // Controle de som dos passos
         if (x != 0 && collision.onGround)
         {
-        if (!isWalking)
-        {
-            isWalking = true;
-        }
+            if (!isWalking)
+            {
+                isWalking = true;
+            }
         }
         else
         {
-        if (isWalking)
-        {
-            isWalking = false;
-        }
+            if (isWalking)
+            {
+                isWalking = false;
+            }
         }
 
         // Lógica de coyote time
@@ -144,7 +140,6 @@ public class PlayerController : MonoBehaviour
 
         // Reduz o tempo de cooldown do dash
         cooldownTimer -= Time.deltaTime;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -165,11 +160,13 @@ public class PlayerController : MonoBehaviour
         scale.x = direction;
         transform.localScale = scale; // Inverte a escala no eixo x para flipar o jogador
     }
+
     private void Walk(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed, rb.velocity.y); // Movimento horizontal
     }
-        private void Jump()
+
+    private void Jump()
     {
         if ((collision.onGround || coyoteTimeCounter > 0) && jumpBufferCounter > 0)
         {
@@ -189,6 +186,7 @@ public class PlayerController : MonoBehaviour
     {
         return isDashing; // Retorna se o jogador está dashing ou não
     }
+
     private IEnumerator Dash(float x, float y)
     {
         isDashing = true;
@@ -197,8 +195,6 @@ public class PlayerController : MonoBehaviour
 
         Vector2 dashDirection = new Vector2(x, y).normalized;
         tr.emitting = true; // Ativa o rastro durante o dash
-
-        audioSource.PlayOneShot(dashSound);
 
         while (dashTimer < dashDuration)
         {
@@ -211,68 +207,73 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         rb.velocity = Vector2.zero; // Reseta a velocidade após o dash
     }
+
     private void Attack()
     {
-    if (Input.GetKeyDown(KeyCode.Z))
-    {
-        animator.SetTrigger("isAttacking");
-
-        // Detecta inimigos no raio de ataque
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayer);
-
-        // Dá dano aos inimigos detectados
-        foreach (Collider2D enemy in hitEnemies)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+            animator.SetTrigger("isAttacking");
+
+            // Detecta inimigos no raio de ataque
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayer);
+
+            // Dá dano aos inimigos detectados
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+                CameraShakerHandler.Shake(DashCameraShake);
+            }
         }
     }
-    }
+
     private void OnDrawGizmosSelected()
     {
-    Gizmos.color = Color.red;
-    Gizmos.DrawWireSphere(transform.position, attackRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 
     public void TakeDamage(int damage)
-    {      
-    if (!isInvulnerable)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (!isInvulnerable)
         {
-            currentHealth = 0;
-            ResetPlayerPosition();
-        }
-        healthBar.SetHealth(currentHealth);
-        healthBar.FlashHealthBar(); // Chama o efeito de flash da barra de vida
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                ResetPlayerPosition();
+            }
+            healthBar.SetHealth(currentHealth);
+            healthBar.FlashHealthBar(); // Chama o efeito de flash da barra de vida
 
-        // Inicia o efeito de piscar vermelho
-        StartCoroutine(FlashRed());
+            // Inicia o efeito de piscar vermelho
+            StartCoroutine(FlashRed());
+        }
     }
-    }
+
     private IEnumerator FlashRed()
     {
-    // Salva a cor original do sprite
-    Color originalColor = spriteRenderer.color;
+        // Salva a cor original do sprite
+        Color originalColor = spriteRenderer.color;
 
-    // Define a cor vermelha
-    spriteRenderer.color = Color.red;
-
-    // Espera um breve momento
-    yield return new WaitForSeconds(0.1f);
-
-    // Restaura a cor original
-    spriteRenderer.color = originalColor;
-
-    // Repete o efeito de piscar algumas vezes
-    for (int i = 0; i < 3; i++)
-    {
-        yield return new WaitForSeconds(0.1f);
+        // Define a cor vermelha
         spriteRenderer.color = Color.red;
+
+        // Espera um breve momento
         yield return new WaitForSeconds(0.1f);
+
+        // Restaura a cor original
         spriteRenderer.color = originalColor;
+
+        // Repete o efeito de piscar algumas vezes
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = originalColor;
+        }
     }
-    }
+
     public void Heal(int amount)
     {
         currentHealth += amount;

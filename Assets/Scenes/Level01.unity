@@ -912,6 +912,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1585734170}
   - {fileID: 1545697635}
+  player: {fileID: 0}
 --- !u!61 &46882600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1957,6 +1958,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1526608664}
   - {fileID: 1538221693}
+  player: {fileID: 0}
 --- !u!114 &86019607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2719,6 +2721,7 @@ GameObject:
   - component: {fileID: 156214989}
   - component: {fileID: 156214991}
   - component: {fileID: 156214992}
+  - component: {fileID: 156214993}
   m_Layer: 0
   m_Name: Leah
   m_TagString: Player
@@ -2787,7 +2790,7 @@ Transform:
   m_GameObject: {fileID: 156214976}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.28, y: -4.09, z: 0}
+  m_LocalPosition: {x: -4.6, y: -4.1, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2858,12 +2861,11 @@ MonoBehaviour:
   healthBar: {fileID: 1835859370}
   maxHealth: 5
   invulnerabilityParticles: {fileID: 1629057295}
-  attackRadius: 0.8
+  attackRadius: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   attackDamage: 1
-  dashSound: {fileID: 8300000, guid: 8dc6ea66d31eb0b488fcfeab006557c2, type: 3}
   rb: {fileID: 156214988}
   speed: 3
   jumpForce: 5
@@ -3231,6 +3233,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &156214993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156214976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1f4eea837a8b445aada6d6017aed32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stompForce: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &159071308
 GameObject:
   m_ObjectHideFlags: 0
@@ -10373,6 +10391,8 @@ GameObject:
   - component: {fileID: 361702690}
   - component: {fileID: 361702689}
   - component: {fileID: 361702691}
+  - component: {fileID: 361702692}
+  - component: {fileID: 361702693}
   m_Layer: 0
   m_Name: Professora-interactive.png
   m_TagString: Untagged
@@ -10469,6 +10489,71 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &361702692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361702688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5370aa9d80d6de74cb41bd44b95ec1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 510288454}
+  dialogueText: {fileID: 81410688}
+  dialogue:
+  - Bom dia, Leah...
+  - "Est\xE1 tudo bem? Voc\xEA est\xE1 meio p\xE1lida."
+  wordSpeed: 0.05
+  playerIsClose: 0
+  interactionButton: {fileID: 1381015556}
+--- !u!61 &361702693
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361702688}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.96}
+    newSize: {x: 0.96, y: 0.96}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.96, y: 0.96}
+  m_EdgeRadius: 0
 --- !u!1 &369372449
 GameObject:
   m_ObjectHideFlags: 0
@@ -12060,6 +12145,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 713201517}
   - {fileID: 1553717149}
+  player: {fileID: 0}
 --- !u!61 &468185601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13391,6 +13477,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 2094397117}
   - {fileID: 736649419}
+  player: {fileID: 0}
 --- !u!61 &523252387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13806,7 +13893,7 @@ Transform:
   m_GameObject: {fileID: 562717605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1788092, y: -0.006050229, z: 0}
+  m_LocalPosition: {x: -2.4971123, y: -0.0069298744, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14195,7 +14282,7 @@ Transform:
   m_GameObject: {fileID: 581283712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.231, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0.231, y: 0.101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22055,7 +22142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &873331950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22473,7 +22560,7 @@ Transform:
   m_GameObject: {fileID: 888849467}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.101191, y: -1.0839499, z: -10}
+  m_LocalPosition: {x: -2.1028876, y: -1.09307, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -83862,9 +83949,10 @@ GameObject:
   - component: {fileID: 1429977343}
   - component: {fileID: 1429977344}
   - component: {fileID: 1429977345}
+  - component: {fileID: 1429977346}
   m_Layer: 7
   m_Name: Maligno (Sombra da febre)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84019,6 +84107,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1968981854}
   - {fileID: 2019949180}
+  player: {fileID: 156214984}
 --- !u!114 &1429977345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84034,6 +84123,41 @@ MonoBehaviour:
   playerController: {fileID: 156214984}
   damage: 1
   invulnerabilityDuration: 3
+--- !u!70 &1429977346
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429977339}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0038585663, y: 0.0019292235}
+  m_Size: {x: 0.15794754, y: 0.24669015}
+  m_Direction: 0
 --- !u!1 &1436530277
 GameObject:
   m_ObjectHideFlags: 0
@@ -84998,7 +85122,8 @@ MonoBehaviour:
   dialogue:
   - Bom dia!
   - "A regi\xE3o anda meio perigosa ultimamente, caso veja algo estranho..."
-  - Passe por cima, hahaha!
+  - Tome muito cuidado!
+  - 'USE "Z" PARA SE ATACAR, QUANDO FOR PRECISO. '
   wordSpeed: 0.05
   playerIsClose: 0
   interactionButton: {fileID: 1470095309}
@@ -86503,6 +86628,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1442923706}
   - {fileID: 1646701694}
+  player: {fileID: 0}
 --- !u!61 &1608414164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -91556,7 +91682,7 @@ Transform:
   m_GameObject: {fileID: 1633266005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.99, y: -0.04, z: 3.2918458}
+  m_LocalPosition: {x: 1.99, y: 0.35, z: 3.2918458}
   m_LocalScale: {x: 0.29979315, y: 0.29979315, z: 0.29979315}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -107712,9 +107838,10 @@ GameObject:
   - component: {fileID: 2075848716}
   - component: {fileID: 2075848715}
   - component: {fileID: 2075848719}
+  - component: {fileID: 2075848720}
   m_Layer: 7
   m_Name: Maligno (Sombra da febre)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107751,6 +107878,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1694536445}
   - {fileID: 2094280031}
+  player: {fileID: 156214984}
 --- !u!61 &2075848716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -107884,6 +108012,41 @@ MonoBehaviour:
   playerController: {fileID: 156214984}
   damage: 1
   invulnerabilityDuration: 3
+--- !u!70 &2075848720
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075848713}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.011574745, y: -0.007716775}
+  m_Size: {x: 0.1733799, y: 0.22739816}
+  m_Direction: 0
 --- !u!1 &2076949085
 GameObject:
   m_ObjectHideFlags: 0
@@ -110697,6 +110860,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1027204547}
   - {fileID: 509622523}
+  player: {fileID: 0}
 --- !u!114 &2115181684
 MonoBehaviour:
   m_ObjectHideFlags: 0
