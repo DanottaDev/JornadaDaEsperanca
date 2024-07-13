@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1fd526af5536165499bb84ef28217e69
+guid: 6daaed28413cfd64db3a7ee32cf54128
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Professora_0
+      name: Teacher_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 576
-        width: 96
-        height: 96
+        y: 448
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,41 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d3bc812de4fb1e43aadb498e780806b
-      internalID: -34414589
+      spriteID: 90af54eba1d66be47910712bed6374e1
+      internalID: -981696646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Professora_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 480
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 953308a6a66abc84d96681e43c4511b7
-      internalID: -1094170779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Professora_2
+      name: Teacher_1
       rect:
         serializedVersion: 2
         x: 0
         y: 384
-        width: 96
-        height: 96
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01dca541161890c4a93e69111747bfb8
-      internalID: 1161418570
+      spriteID: f8b194e55e3c51d4cb34249462eb5eca
+      internalID: -2100712692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Professora_3
+      name: Teacher_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
-        width: 96
-        height: 96
+        y: 320
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +153,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bae30581f04b5e499a5ec32bb3ed28e
-      internalID: -1220806039
+      spriteID: 5038c425e26f6ca4eab218ba386d1b1f
+      internalID: -155109462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Professora_4
+      name: Teacher_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9950ca9bb4f646549b3a83afa46e7bbd
+      internalID: -80379383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teacher_4
       rect:
         serializedVersion: 2
         x: 0
         y: 192
-        width: 96
-        height: 96
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29133ff5871c6f340b0e7810d00845ed
-      internalID: -1029056353
+      spriteID: 07ccb39e15a52834b91dc91ff3578b83
+      internalID: 1214899649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Professora_5
+      name: Teacher_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 96
-        height: 96
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02918e6e3996f07459355b3361508d31
-      internalID: -1180089460
+      spriteID: 7c17af697abf5344499975b0af670ff0
+      internalID: -2145284286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Professora_6
+      name: Teacher_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd2baddccc91504794cf07eb4c48f5c
+      internalID: 265122126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teacher_7
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05324f79b94fa6d4085d633c0d56c485
-      internalID: -584890477
+      spriteID: 4a844c122069684498d5e151b5058351
+      internalID: 70223152
       vertices: []
       indices: 
       edges: []
@@ -246,7 +267,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ea6fc2c71d658064ba613b39dd42dd81
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -254,13 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Professora_0: -34414589
-      Professora_1: -1094170779
-      Professora_2: 1161418570
-      Professora_3: -1220806039
-      Professora_4: -1029056353
-      Professora_5: -1180089460
-      Professora_6: -584890477
+      Teacher_0: -981696646
+      Teacher_1: -2100712692
+      Teacher_2: -155109462
+      Teacher_3: -80379383
+      Teacher_4: 1214899649
+      Teacher_5: -2145284286
+      Teacher_6: 265122126
+      Teacher_7: 70223152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

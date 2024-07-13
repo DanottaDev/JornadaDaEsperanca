@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 2f;
     public Transform[] waypoints;
     public PlayerController player;
-
+    
     private int currentHealth;
     private int currentWaypointIndex = 0;
     private bool isAttacking = false;
@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    public void TakeDamage(int damage, bool isStompAttack = false)
+    public void TakeDamage(int damage)
     {
         if (isDying) return;
 
@@ -67,11 +67,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (isStompAttack)
-            {
-                // Se for um stomp attack, chame a coroutine para piscar de vermelho
-                StartCoroutine(FlashRed());
-            }
+            StartCoroutine(FlashRed());
         }
     }
 
@@ -94,17 +90,5 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Verificar se houve colisão com o jogador (ou outro objeto) que representa o stomp attack
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // Calcular o dano do stomp attack e chamar TakeDamage com isStompAttack true
-            int stompDamage = 1; // Ajuste o valor conforme necessário
-            bool isStomp = true;
-            TakeDamage(stompDamage, isStomp);
-        }
     }
 }

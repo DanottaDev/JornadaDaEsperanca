@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class UIManager : MonoBehaviour
                 break;
             case SymptomTrigger.SymptomType.Fatigue:
                 symptomIcon.sprite = fatigueIcon;
-                symptomText.text = "Leah: Não estou muito bem, estou me sentido fraca";
+                symptomText.text = "Leah: Não estou muito bem, estou me sentindo fraca";
                 break;
             case SymptomTrigger.SymptomType.BonePain:
                 symptomIcon.sprite = bonePainIcon;
@@ -58,6 +59,26 @@ public class UIManager : MonoBehaviour
         symptomBackground.gameObject.SetActive(true);
         symptomIcon.gameObject.SetActive(true);
         symptomText.gameObject.SetActive(true);
+
+        // Inicia a corrotina para ocultar o texto após 5 segundos
+        StartCoroutine(HideSymptomTextAfterDelay(5f));
+    }
+
+    private IEnumerator HideSymptomTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        HideSymptomText();
+    }
+
+    public void HideSymptomText()
+    {
+        if (symptomText == null)
+        {
+            Debug.LogWarning("Text element is missing");
+            return;
+        }
+
+        symptomText.gameObject.SetActive(false);
     }
 
     public void HideSymptom()
