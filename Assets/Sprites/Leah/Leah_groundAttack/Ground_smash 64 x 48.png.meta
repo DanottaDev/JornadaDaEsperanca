@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3a319ff733337504ca5543d06a8c8b11
+guid: 7ab8e25bd6d94ec49a20ac708698fe10
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_0
+      name: Ground_smash 64 x 48_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d19b1291202894f9d9f240eeb3d57a
-      internalID: 631048367
+      spriteID: 8db3d045427402143a6d7e492388f272
+      internalID: 372531953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_1
+      name: Ground_smash 64 x 48_1
       rect:
         serializedVersion: 2
         x: 0
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85388a40da043ea4a83277b880d28351
-      internalID: -1887640425
+      spriteID: f72195b313669b64aa293e0a8f6a9f9f
+      internalID: -281666232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_2
+      name: Ground_smash 64 x 48_2
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef41ae88ff1b2864394095b3be10397a
-      internalID: -291814731
+      spriteID: 3ce970aba9b8f144699d64224d97f713
+      internalID: -1654570281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_3
+      name: Ground_smash 64 x 48_3
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57699aaaefbc02040beec206ce76b73b
-      internalID: 1329469115
+      spriteID: ff2f73514fa82c94888fc4635cb27042
+      internalID: -463972110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_4
+      name: Ground_smash 64 x 48_4
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7eef12519d12af346848dec3609368f2
-      internalID: 1882240202
+      spriteID: 84788308f117a8447b073adebbaa84c6
+      internalID: -216889097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_5
+      name: Ground_smash 64 x 48_5
       rect:
         serializedVersion: 2
         x: 0
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101e332154107b04684c27e38c7e4221
-      internalID: 1268506910
+      spriteID: 5971d55af2869374e89153e1a26c1c1c
+      internalID: 1100666274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_6
+      name: Ground_smash 64 x 48_6
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f623bc8633edabc4d80cba3b7975d5ac
-      internalID: -1850054738
+      spriteID: f0f1679ff208f0f458e71321664895ed
+      internalID: -1244444349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_smash (64 x 48) (1)_7
+      name: Ground_smash 64 x 48_7
       rect:
         serializedVersion: 2
         x: 0
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2229871587e41f4eaa754b3a952f550
-      internalID: -604922667
+      spriteID: aa458ebd041040646a57503e257ca793
+      internalID: -222961282
       vertices: []
       indices: 
       edges: []
@@ -267,7 +267,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 786dfa0b9dc48ec4db2f7248895a18a4
+    spriteID: f2238ae658157b847add1433ca3f1c49
     internalID: 0
     vertices: []
     indices: 
@@ -275,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ground_smash (64 x 48) (1)_0: 631048367
-      Ground_smash (64 x 48) (1)_1: -1887640425
-      Ground_smash (64 x 48) (1)_2: -291814731
-      Ground_smash (64 x 48) (1)_3: 1329469115
-      Ground_smash (64 x 48) (1)_4: 1882240202
-      Ground_smash (64 x 48) (1)_5: 1268506910
-      Ground_smash (64 x 48) (1)_6: -1850054738
-      Ground_smash (64 x 48) (1)_7: -604922667
+      Ground_smash 64 x 48_0: 372531953
+      Ground_smash 64 x 48_1: -281666232
+      Ground_smash 64 x 48_2: -1654570281
+      Ground_smash 64 x 48_3: -463972110
+      Ground_smash 64 x 48_4: -216889097
+      Ground_smash 64 x 48_5: 1100666274
+      Ground_smash 64 x 48_6: -1244444349
+      Ground_smash 64 x 48_7: -222961282
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
