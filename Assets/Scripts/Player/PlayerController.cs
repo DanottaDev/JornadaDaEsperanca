@@ -34,6 +34,12 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isInvulnerable = false; // Flag para invulnerabilidade
 
+    // Variáveis de Wall Slide e Wall Jump
+    private bool isWallSliding = false;
+    public float wallSlideSpeed = 2f; // Velocidade do wall slide
+    public float wallJumpForce = 30f; // Força do wall jump
+    public Vector2 wallJumpDirection = new Vector2(1, 1); // Direção do wall jump
+
     // Referências de Componentes
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public int speed = 5; // Tornar público
@@ -41,7 +47,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
     private Animator animator;
     private Vector3 respawnPoint;
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -109,7 +115,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (jumpBufferCounter > 0)
+        if (jumpBufferCounter > 0 && (collision.onGround || isWallSliding))
         {
             Jump();
         }
@@ -119,6 +125,22 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash(x, y));
             CameraShakerHandler.Shake(DashCameraShake);
+        }
+
+        // Wall Slide
+        if (collision.onWall && !collision.onGround && rb.velocity.y < 0)
+        {
+            StartWallSlide();
+        }
+        else
+        {
+            StopWallSlide();
+        }
+
+        // Wall Jump
+        if (isWallSliding && Input.GetButtonDown("Jump"))
+        {
+            WallJump();
         }
 
         // Flip do Jogador
@@ -137,6 +159,7 @@ public class PlayerController : MonoBehaviour
         // Atualiza animações
         animator.SetBool("isRunning", x != 0 && collision.onGround);
         animator.SetBool("isJumping", !collision.onGround && !collision.onWall && rb.velocity.y > 0);
+        animator.SetBool("isWallSliding", isWallSliding);
 
         // Reduz o tempo de cooldown do dash
         cooldownTimer -= Time.deltaTime;
@@ -168,13 +191,31 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if ((collision.onGround || coyoteTimeCounter > 0) && jumpBufferCounter > 0)
+        if ((collision.onGround || coyoteTimeCounter > 0 || isWallSliding) && jumpBufferCounter > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0); // Reseta a velocidade vertical antes de pular
             rb.velocity += Vector2.up * jumpForce; // Aplica força de pulo
             coyoteTimeCounter = 0; // Reseta o tempo de coyote após o pulo
             jumpBufferCounter = 0; // Reseta o tempo de buffer após o pulo
         }
+    }
+
+    private void WallJump()
+    {
+        Vector2 jumpDirection = new Vector2(wallJumpDirection.x * -transform.localScale.x, wallJumpDirection.y);
+        rb.velocity = new Vector2(jumpDirection.x * wallJumpForce, jumpDirection.y * wallJumpForce);
+        StopWallSlide(); // Para o wall slide após o wall jump
+    }
+
+    private void StartWallSlide()
+    {
+        isWallSliding = true;
+        rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
+    }
+
+    private void StopWallSlide()
+    {
+        isWallSliding = false;
     }
 
     private bool CanDash()
@@ -284,6 +325,14 @@ public class PlayerController : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+    public void ResetPlayerPosition()
+    {
+        transform.position = respawnPoint; // Reseta a posição do jogador ao ponto de respawn
+        currentHealth = maxHealth; // Reseta a saúde do jogador para o valor máximo
+        healthBar.SetHealth(currentHealth); // Atualiza a barra de vida
+        StartInvulnerability(3f); // Inicia a invulnerabilidade por 3 segundos
+    }
+
     public void StartInvulnerability(float duration)
     {
         StartCoroutine(InvulnerabilityCooldown(duration));
@@ -292,19 +341,22 @@ public class PlayerController : MonoBehaviour
     private IEnumerator InvulnerabilityCooldown(float duration)
     {
         isInvulnerable = true;
-        invulnerabilityParticles.Play(); // Ativa o sistema de partículas
+        invulnerabilityParticles.Play(); // Ativa o sistema de partículas de invulnerabilidade, se houver
 
-        yield return new WaitForSeconds(duration);
+        // Piscar o jogador para indicar invulnerabilidade
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Color originalColor = spriteRenderer.color;
+
+        for (float i = 0; i < duration; i += 0.2f)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 0.5f); // Define a cor com transparência
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(0.1f);
+        }
 
         isInvulnerable = false;
-        invulnerabilityParticles.Stop(); // Desativa o sistema de partículas
-    }
-
-    private void ResetPlayerPosition()
-    {
-        transform.position = respawnPoint; // Reseta a posição do jogador ao ponto de respawn
-        currentHealth = maxHealth; // Reseta a saúde do jogador para o valor máximo
-        healthBar.SetHealth(currentHealth); // Atualiza a barra de vida
+        invulnerabilityParticles.Stop(); // Desativa o sistema de partículas de invulnerabilidade, se houver
     }
 
     public void ResetSpeedAndJump()
