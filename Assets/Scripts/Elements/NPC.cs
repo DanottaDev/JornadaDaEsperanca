@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI npcNameText; // Referência para o nome do NPC
+    public Image npcImage; // Referência para a imagem do NPC
     public string[] dialogue;
     private int index;
     public float wordSpeed;
@@ -17,6 +16,10 @@ public class NPC : MonoBehaviour
     public GameObject interactionButton;
     private PlayerController playerController;
     private bool isDialogueActive = false; // Variável para controlar se o diálogo está ativo
+
+    // Adicione as variáveis para o nome e a imagem do NPC
+    public string npcName;
+    public Sprite npcSprite;
 
     void Start()
     {
@@ -40,15 +43,14 @@ public class NPC : MonoBehaviour
                 NextLine();
             }
         }
-        else
-        {
-        }
     }
 
     void StartDialogue()
     {
         isDialogueActive = true; // Marca o diálogo como ativo
         dialoguePanel.SetActive(true);
+        npcNameText.text = npcName; // Define o nome do NPC
+        npcImage.sprite = npcSprite; // Define a imagem do NPC
         playerController.StopMovement();
         playerController.enabled = false;
         StartCoroutine(Typing());
@@ -74,7 +76,6 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-
         if (index < dialogue.Length - 1)
         {
             index++;
