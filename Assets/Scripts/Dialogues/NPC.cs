@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -7,19 +8,15 @@ public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI npcNameText; // Referência para o nome do NPC
-    public Image npcImage; // Referência para a imagem do NPC
-    public string[] dialogue;
+    public TextMeshProUGUI npcNameText;
+    public Image npcImage;
+    public List<DialogueLine> dialogueLines; // Lista de linhas de diálogo
     private int index;
     public float wordSpeed;
     public bool playerIsClose;
     public GameObject interactionButton;
     private PlayerController playerController;
-    private bool isDialogueActive = false; // Variável para controlar se o diálogo está ativo
-
-    // Adicione as variáveis para o nome e a imagem do NPC
-    public string npcName;
-    public Sprite npcSprite;
+    private bool isDialogueActive = false;
 
     void Start()
     {
@@ -31,12 +28,12 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose && !isDialogueActive) // Verifica se o diálogo não está ativo
+        if (Input.GetKeyDown(KeyCode.E) && playerIsClose && !isDialogueActive)
         {
             StartDialogue();
         }
 
-        if (dialogueText.text == dialogue[index])
+        if (dialogueText.text == dialogueLines[index].text)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -47,13 +44,20 @@ public class NPC : MonoBehaviour
 
     void StartDialogue()
     {
-        isDialogueActive = true; // Marca o diálogo como ativo
+        isDialogueActive = true;
         dialoguePanel.SetActive(true);
-        npcNameText.text = npcName; // Define o nome do NPC
-        npcImage.sprite = npcSprite; // Define a imagem do NPC
         playerController.StopMovement();
         playerController.enabled = false;
-        StartCoroutine(Typing());
+        ShowDialogueLine();
+    }
+
+    void ShowDialogueLine()
+    {
+        DialogueLine line = dialogueLines[index];
+        npcNameText.text = line.name;
+        npcImage.sprite = line.image;
+        dialogueText.text = "";
+        StartCoroutine(Typing(line.text));
     }
 
     public void zeroText()
@@ -62,12 +66,12 @@ public class NPC : MonoBehaviour
         index = 0;
         dialoguePanel.SetActive(false);
         playerController.enabled = true;
-        isDialogueActive = false; // Marca o diálogo como não ativo ao cancelar
+        isDialogueActive = false;
     }
 
-    IEnumerator Typing()
+    IEnumerator Typing(string text)
     {
-        foreach (char letter in dialogue[index].ToCharArray())
+        foreach (char letter in text.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
@@ -76,11 +80,10 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-        if (index < dialogue.Length - 1)
+        if (index < dialogueLines.Count - 1)
         {
             index++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
+            ShowDialogueLine();
         }
         else
         {
