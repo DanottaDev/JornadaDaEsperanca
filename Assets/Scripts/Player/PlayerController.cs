@@ -18,6 +18,16 @@ public class PlayerController : MonoBehaviour
     public float attackRadius = 1f; // Raio de ataque
     public LayerMask enemyLayer; // Layer dos inimigos
     public int attackDamage = 1; // Dano do ataque
+    public AudioClip jumpSound;
+    public AudioClip dashSound;
+    public AudioClip attackSound;
+    public AudioClip takeDamageSound;
+    public AudioClip healSound;
+    public AudioClip wallJumpSound;
+
+    public AudioClip[] footstepSounds; // Array de clipes de som de passos
+    public float footstepInterval = 0.5f; // Intervalo entre os sons de passos
+    public AudioSource audioSource; // Referência ao AudioSource
 
     // Variáveis Privadas
     private float originalSpeed;
@@ -33,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private int currentHealth; // Saúde atual do jogador
     private SpriteRenderer spriteRenderer;
     private bool isInvulnerable = false; // Flag para invulnerabilidade
+    private bool isPlayingFootstepSound = false;
 
     // Variáveis de Wall Slide e Wall Jump
     private bool isWallSliding = false;
@@ -61,6 +72,8 @@ public class PlayerController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
 
         invulnerabilityParticles.Stop();
+
+        audioSource = GetComponent<AudioSource>(); // Obtém o AudioSource
     }
 
     private void Update()
@@ -165,6 +178,7 @@ public class PlayerController : MonoBehaviour
         cooldownTimer -= Time.deltaTime;
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "FallDetector")
@@ -187,16 +201,36 @@ public class PlayerController : MonoBehaviour
     private void Walk(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed, rb.velocity.y); // Movimento horizontal
+        
+        if (dir.x != 0 && collision.onGround && !isPlayingFootstepSound)
+        {
+            StartCoroutine(PlayFootstepSounds());
+        }
     }
+
+
+    private IEnumerator PlayFootstepSounds()
+{
+    isPlayingFootstepSound = true;
+    while (isWalking && collision.onGround)
+    {
+        AudioClip footstepSound = footstepSounds[Random.Range(0, footstepSounds.Length)];
+        audioSource.PlayOneShot(footstepSound);
+        yield return new WaitForSeconds(footstepInterval);
+    }
+    isPlayingFootstepSound = false;
+}
+
 
     private void Jump()
     {
-        if ((collision.onGround || coyoteTimeCounter > 0 || isWallSliding) && jumpBufferCounter > 0)
+    if ((collision.onGround || coyoteTimeCounter > 0 || isWallSliding) && jumpBufferCounter > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0); // Reseta a velocidade vertical antes de pular
             rb.velocity += Vector2.up * jumpForce; // Aplica força de pulo
             coyoteTimeCounter = 0; // Reseta o tempo de coyote após o pulo
             jumpBufferCounter = 0; // Reseta o tempo de buffer após o pulo
+            audioSource.PlayOneShot(jumpSound); // Toca o som de pulo
         }
     }
 
@@ -205,6 +239,8 @@ public class PlayerController : MonoBehaviour
         Vector2 jumpDirection = new Vector2(wallJumpDirection.x * -transform.localScale.x, wallJumpDirection.y);
         rb.velocity = new Vector2(jumpDirection.x * wallJumpForce, jumpDirection.y * wallJumpForce);
         StopWallSlide(); // Para o wall slide após o wall jump
+
+        audioSource.PlayOneShot(wallJumpSound);
     }
 
     private void StartWallSlide()
@@ -237,6 +273,8 @@ public class PlayerController : MonoBehaviour
         Vector2 dashDirection = new Vector2(x, y).normalized;
         tr.emitting = true; // Ativa o rastro durante o dash
 
+        audioSource.PlayOneShot(dashSound); // Toca o som do dash
+
         while (dashTimer < dashDuration)
         {
             rb.velocity = dashDirection * dashForce;
@@ -254,6 +292,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             animator.SetTrigger("isAttacking");
+
+            audioSource.PlayOneShot(attackSound); // Toca o som de ataque
 
             // Detecta inimigos no raio de ataque
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayer);
@@ -285,6 +325,8 @@ public class PlayerController : MonoBehaviour
             }
             healthBar.SetHealth(currentHealth);
             healthBar.FlashHealthBar(); // Chama o efeito de flash da barra de vida
+
+            audioSource.PlayOneShot(takeDamageSound); // Toca o som de dano
 
             // Inicia o efeito de piscar vermelho
             StartCoroutine(FlashRed());
@@ -323,6 +365,7 @@ public class PlayerController : MonoBehaviour
             currentHealth = maxHealth;
         }
         healthBar.SetHealth(currentHealth);
+        audioSource.PlayOneShot(healSound); // Toca o som de cura
     }
 
     public void ResetPlayerPosition()
