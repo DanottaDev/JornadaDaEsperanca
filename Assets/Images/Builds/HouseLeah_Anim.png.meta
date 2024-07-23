@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 33839958711097340acaf08c42fbee0a
+guid: ebd12848d92b618479e5831b230a802d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,18 +95,62 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HouseLeah_Anim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 620
+        width: 720
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c73002db11519b44b333ff471b314ec
+      internalID: 2096523577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HouseLeah_Anim_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 720
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9f059223506bd42a18d7c0d2ed89ad
+      internalID: 407157728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 83a336e19e248d249a382666d63c9ce2
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HouseLeah_Anim_0: 2096523577
+      HouseLeah_Anim_1: 407157728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
