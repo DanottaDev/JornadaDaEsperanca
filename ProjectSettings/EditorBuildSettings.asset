@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: f02a6d3d6a9d4544fa6d8edcac8de262
-  - enabled: 0
-    path: Assets/Scenes/SceneLoader.unity
-    guid: 25d960213f2f80b49bb528c008a49c54
+  - enabled: 1
+    path: Assets/Scenes/OpeningCutscene.unity
+    guid: 20dce63bb480bf7488e0753a539ed73e
   - enabled: 1
     path: Assets/Scenes/Level01.unity
     guid: db01b2fa5b643e64d99391d032104f20
+  - enabled: 0
+    path: Assets/Scenes/SceneLoader.unity
+    guid: 25d960213f2f80b49bb528c008a49c54
   m_configObjects: {}
