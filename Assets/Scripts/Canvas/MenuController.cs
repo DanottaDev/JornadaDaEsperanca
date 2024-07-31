@@ -17,9 +17,10 @@ public class MenuController : MonoBehaviour
     public void QuitGame()
     {
         // Editor Unity
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
+        
         // Para o jogo compilado
-        // Application.Quit();
+        Application.Quit();
     }
     
 }
