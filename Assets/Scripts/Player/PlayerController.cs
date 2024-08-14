@@ -18,13 +18,14 @@ public class PlayerController : MonoBehaviour
     public float attackRadius = 1f; // Raio de ataque
     public LayerMask enemyLayer; // Layer dos inimigos
     public int attackDamage = 1; // Dano do ataque
+    public bool canAttack = false; // Variável para rastrear se o ataque está desbloqueado
+
     public AudioClip jumpSound;
     public AudioClip dashSound;
     public AudioClip attackSound;
     public AudioClip takeDamageSound;
     public AudioClip healSound;
     public AudioClip wallJumpSound;
-
     public AudioClip[] footstepSounds; // Array de clipes de som de passos
     public float footstepInterval = 0.5f; // Intervalo entre os sons de passos
     public AudioSource audioSource; // Referência ao AudioSource
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift) && CanDash())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && CanDash() || (Input.GetKeyDown(KeyCode.X)) && CanDash())
         {
             StartCoroutine(Dash(x, y));
             CameraShakerHandler.Shake(DashCameraShake);
@@ -289,7 +290,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (canAttack && Input.GetKeyDown(KeyCode.Z))
         {
             animator.SetTrigger("isAttacking");
 
