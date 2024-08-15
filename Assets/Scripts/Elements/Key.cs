@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Key : MonoBehaviour
@@ -14,7 +12,12 @@ public class Key : MonoBehaviour
             if (keyInventory != null)
             {
                 keyInventory.AddKey(keyType);
+                Debug.Log($"Chave {keyType} coletada pelo jogador.");
                 Destroy(gameObject); // Destroi a chave após ser coletada
+            }
+            else
+            {
+                Debug.LogError("KeyInventory não encontrado no jogador.");
             }
         }
     }
