@@ -11,6 +11,11 @@ public class TrapActivator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             trapRigidbody.gravityScale = 1f;  // Ativa a gravidade
+            PlayerController playerController = collision.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.TakeDamage(1); // Aplica dano ao jogador (ajuste conforme necessário)
+            }
         }
     }
 }
