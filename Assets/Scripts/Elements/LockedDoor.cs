@@ -1,13 +1,15 @@
 using UnityEngine;
+using FirstGearGames.SmoothCameraShaker;
 
 public class LockedDoor : MonoBehaviour
 {
     public string requiredKey; // Tipo de chave necessária para abrir a porta
+    public ShakeData GateCameraShake;
 
     private Animator animator;
     private Collider2D doorCollider;
     private bool isOpen = false;
-
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -51,6 +53,7 @@ public class LockedDoor : MonoBehaviour
             Debug.Log("Porta aberta.");
             animator.SetTrigger("Open");
             doorCollider.enabled = false; // Desativa o colisor da porta
+            CameraShakerHandler.Shake(GateCameraShake);
         }
     }
 }

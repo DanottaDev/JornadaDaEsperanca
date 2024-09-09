@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: ff483d16be4b3734fb61df8da29177a1
+guid: b438465a32eb63243a7889eb1f400d29
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7013631516640934163
+    second: Bat_Fly_0
+  - first:
+      213: 2129977301182375049
+    second: Bat_Fly_1
+  - first:
+      213: 4629786828116271281
+    second: Bat_Fly_2
+  - first:
+      213: 3316824086482507018
+    second: Bat_Fly_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,7 +51,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -65,7 +77,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -85,7 +97,46 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,127 +148,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bat_knife_0
+      name: Bat_Fly_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1623d05fda9a21e499672047d2363868
-      internalID: -338743000
+      spriteID: 319fdde54bc655160800000000000000
+      internalID: 7013631516640934163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_knife_1
+      name: Bat_Fly_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 0
-        width: 80
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3929294298652e47a0eca75c23187d5
-      internalID: -1079031762
+      spriteID: 984ee9002133f8d10800000000000000
+      internalID: 2129977301182375049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_knife_2
+      name: Bat_Fly_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 128
         y: 0
-        width: 80
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ab786a631e3b0d47b1f2f7d4f2a1277
-      internalID: 946580066
+      spriteID: 1b027ab279e404040800000000000000
+      internalID: 4629786828116271281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_knife_3
+      name: Bat_Fly_3
       rect:
         serializedVersion: 2
-        x: 240
+        x: 192
         y: 0
-        width: 80
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e8ae6e7bb6327f43af58179d2fb9733
-      internalID: 551352336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bat_knife_4
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 80
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f61bd3e8d44ec1648a7eef177b51b9a1
-      internalID: 31412625
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bat_knife_5
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 80
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b17f7e7bf7d54434e8791b1f0dcbe55c
-      internalID: -801496314
+      spriteID: a05df31fee9b70e20800000000000000
+      internalID: 3316824086482507018
       vertices: []
       indices: 
       edges: []
@@ -225,7 +234,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6573e595bfaef7b46aeed45da048b4eb
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -233,12 +242,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bat_knife_0: -338743000
-      bat_knife_1: -1079031762
-      bat_knife_2: 946580066
-      bat_knife_3: 551352336
-      bat_knife_4: 31412625
-      bat_knife_5: -801496314
+      Bat_Fly_0: 7013631516640934163
+      Bat_Fly_1: 2129977301182375049
+      Bat_Fly_2: 4629786828116271281
+      Bat_Fly_3: 3316824086482507018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
