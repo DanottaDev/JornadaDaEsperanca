@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   lifetime: 3
+  animator: {fileID: 8970127200477303966}
 --- !u!50 &4422481799900781705
 Rigidbody2D:
   serializedVersion: 4

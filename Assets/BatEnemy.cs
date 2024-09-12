@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class BatEnemy : MonoBehaviour
 {
-    public float speed = 2f; // Velocidade de movimento do morcego
     public float attackRange = 1.5f; // Distância em que o morcego inicia o ataque
     public float detectionRange = 10f; // Raio de detecção do jogador
     public float health = 3; // Vida do morcego
     public float damage = 1; // Dano que o morcego causa
     public float attackCooldown = 1f; // Tempo entre ataques
+    public float moveSpeed = 2f;
+    public float attackMoveDistance = 0.5f;
 
     private Transform player; // Referência ao jogador
     private Animator animator; // Referência ao componente Animator
     private Rigidbody2D rb; // Referência ao Rigidbody2D
-    private bool isAttacking = false; // Controle de estado de ataque
-    private bool isDead = false; // Controle de estado de morte
-    private float lastAttackTime = 0f; // Controle de cooldown entre ataques
-
     public Collider2D attackCollider; // Collider do ataque
+
+    private bool isDead = false; // Controle de estado de morte
+    private float nextAttackTime;
 
     void Start()
     {
@@ -34,47 +34,33 @@ public class BatEnemy : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer < detectionRange && !isAttacking)
+        if (distanceToPlayer > attackRange)
         {
-            FollowPlayer(); // Seguir o jogador se não estiver atacando
-            
-            if (distanceToPlayer <= attackRange && Time.time >= lastAttackTime + attackCooldown)
-            {
-                StartAttack();
-            }
+            FollowPlayer();
+        }
+        else if (Time.time >= nextAttackTime)
+        {
+            Attack();
         }
     }
 
     void FollowPlayer()
     {
-        if (isAttacking) return; // Se estiver atacando, não seguir o jogador
-
+        animator.SetBool("isAttacking", false);  // Para garantir que não está atacando enquanto se move
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        transform.localScale = new Vector2(player.position.x < transform.position.x ? 3 : -3, 3);  // Flip para virar na direção do player
 
-        // Inverter sprite se o player estiver à esquerda/direita
-        if (direction.x > 0)
-            transform.localScale = new Vector3(3, 3, 1); // Para a direita
-        else
-            transform.localScale = new Vector3(-3, 3, 1); // Para a esquerda
     }
 
-    void StartAttack()
+    void Attack()
     {
-        isAttacking = true;
-        rb.velocity = Vector2.zero; // Parar de se mover
         animator.SetTrigger("Attack"); // Iniciar animação de ataque
-        attackCollider.enabled = true; // Ativar o collider de ataque
-    }
-
-    // Chamado no final da animação de ataque (isso deve ser configurado no Animator)
-    public void EndAttack()
-    {
-        Debug.Log("Ataque terminou!");
-        isAttacking = false;
-        lastAttackTime = Time.time;
-        attackCollider.enabled = false;
-        FollowPlayer();
+        nextAttackTime = Time.time + attackCooldown;
+        attackCollider.enabled = true;
+         // Dá um pequeno impulso para frente
+        Vector2 attackDirection = (player.position - transform.position).normalized;
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)attackDirection, attackMoveDistance);
     }
 
     public void TakeDamage(float damage)
