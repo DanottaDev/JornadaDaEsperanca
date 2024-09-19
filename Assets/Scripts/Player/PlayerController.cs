@@ -160,11 +160,11 @@ public class PlayerController : MonoBehaviour
         // Flip do Jogador
         if (dir.x < 0)
         {
-            FlipPlayer(-2.5f);
+            FlipPlayer(-3f);
         }
         else if (dir.x > 0)
         {
-            FlipPlayer(2.5f);
+            FlipPlayer(3f);
         }
 
         // Atualiza posição do detector de queda
