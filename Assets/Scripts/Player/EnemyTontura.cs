@@ -28,10 +28,23 @@ public class InimigoAtaque : MonoBehaviour
     {
         float distanciaParaJogador = Vector3.Distance(jogador.position, transform.position);
 
+        // Verificar se o jogador está à esquerda ou à direita
+        if (jogador.position.x < transform.position.x)
+        {
+            // Jogador está à esquerda, então flip o inimigo para a esquerda
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            // Jogador está à direita, então flip o inimigo para a direita
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+
         // Se o tempo de ataque tiver acabado, realiza o próximo ataque
         if (tempoParaProximoAtaque <= 0f && !estaAtacando)
         {
-            // Resetar os booleanos de ataque para garantir que eles só serão ativados no momento correto
+            // Voltar para o estado idle antes de decidir o ataque
+            animator.SetBool("IsAttacking", false); // Resetar o estado de ataque
             animator.SetBool("AtaqueDistancia", false);
             animator.SetBool("AtaqueLaser", false);
 
@@ -61,12 +74,11 @@ public class InimigoAtaque : MonoBehaviour
             // Diminuir o tempo entre ataques
             tempoParaProximoAtaque -= Time.deltaTime;
 
-            // Garantir que o inimigo retorne à animação idle quando não está atacando
-            if (estaAtacando && tempoParaProximoAtaque <= 0)
+            // Voltar para o estado Idle entre os ataques
+            if (estaAtacando && tempoParaProximoAtaque > 0)
             {
                 estaAtacando = false; // Reiniciar o estado de ataque
-                animator.SetBool("IsAttacking", false); // Definir como falso quando não está atacando
-                Debug.Log("Inimigo parou de atacar. Voltando para o estado Idle.");
+                animator.SetBool("IsAttacking", false); // Garantir que volte para idle
             }
         }
     }
@@ -82,8 +94,25 @@ public class InimigoAtaque : MonoBehaviour
         GameObject projetil = Instantiate(projetilPrefab, pontoDeDisparo.position, pontoDeDisparo.rotation);
         Rigidbody2D rb = projetil.GetComponent<Rigidbody2D>();
         Vector2 direcao = (jogador.position - pontoDeDisparo.position).normalized;
-        rb.velocity = direcao * 10f; // Velocidade do projétil
+        rb.velocity = direcao * 5f; // Velocidade do projétil
         Debug.Log("Projétil lançado.");
+        
+        // Após o ataque, resetar o estado para idle
+        Invoke("VoltarParaIdle", 0.5f);  // Retorna ao estado Idle após 0.5 segundos (ajuste conforme necessário)
+
+        // Flipar o projétil se o jogador estiver à esquerda
+    if (direcao.x < 0) // Se a direção do projétil for para a esquerda
+    {
+        Vector3 escalaProjetil = projetil.transform.localScale;
+        escalaProjetil.x = -Mathf.Abs(escalaProjetil.x); // Garantir que o eixo x seja negativo
+        projetil.transform.localScale = escalaProjetil;
+    }
+    else // Se o projétil for para a direita
+    {
+        Vector3 escalaProjetil = projetil.transform.localScale;
+        escalaProjetil.x = Mathf.Abs(escalaProjetil.x); // Garantir que o eixo x seja positivo
+        projetil.transform.localScale = escalaProjetil;
+    }
     }
 
     void AtacarComLaser()
@@ -96,6 +125,16 @@ public class InimigoAtaque : MonoBehaviour
         // Aplicar dano diretamente ao jogador
         jogador.GetComponent<PlayerController>().TakeDamage(danoLaser);
         Debug.Log("Dano de laser aplicado ao jogador.");
+        
+        // Após o ataque, resetar o estado para idle
+        Invoke("VoltarParaIdle", 0.5f);  // Retorna ao estado Idle após 0.5 segundos (ajuste conforme necessário)
+    }
+
+    void VoltarParaIdle()
+    {
+        animator.SetBool("IsAttacking", false);
+        animator.SetBool("AtaqueDistancia", false);
+        animator.SetBool("AtaqueLaser", false);
     }
 
     // Desenhar os raios de alcance no editor para visualização
