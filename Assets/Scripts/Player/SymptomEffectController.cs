@@ -6,6 +6,7 @@ public class SymptomEffectController : MonoBehaviour
     public ParticleSystem feverEffect;
     public ParticleSystem fatigueEffect;
     public ParticleSystem breathingDifficultyEffect;
+    public ParticleSystem TosseEffect;
 
     private PlayerController playerController;
     private float originalSpeed;
@@ -36,9 +37,11 @@ public class SymptomEffectController : MonoBehaviour
                 playerController.jumpForce = originalJumpForce * 0.75f; // Reduce jump force by 25%
                 break;
             case SymptomTrigger.SymptomType.BreathingDifficulty:
-            
                 breathingDifficultyEffect.Play();
                 playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
+                break;
+            case SymptomTrigger.SymptomType.Tosse:
+                TosseEffect.Play();
                 break;
         }
     }
@@ -49,6 +52,7 @@ public class SymptomEffectController : MonoBehaviour
         feverEffect.Stop();
         fatigueEffect.Stop();
         breathingDifficultyEffect.Stop();
+        TosseEffect.Stop();
         playerController.ResetSpeedAndJump(); // Reset speed and jump force
     }
 }

@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public Sprite fatigueIcon;
     public Sprite bonePainIcon;
     public Sprite breathingDifficultyIcon;
+    public Sprite tosseIcon;
 
     private void Awake()
     {
@@ -53,6 +54,10 @@ public class UIManager : MonoBehaviour
             case SymptomTrigger.SymptomType.BreathingDifficulty:
                 symptomIcon.sprite = breathingDifficultyIcon;
                 symptomText.text = "Leah: Estou com dificuldades para respirar!";
+                break;
+            case SymptomTrigger.SymptomType.Tosse:
+                symptomIcon.sprite = tosseIcon;
+                symptomText.text = "Atlas: Acho que estou começando a ficar doente. Essa tosse não é normal...";
                 break;
         }
 
