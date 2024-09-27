@@ -67413,7 +67413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e756718530d4f86439a7d177057c64e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symptom: 1
+  symptom: 5
 --- !u!114 &997651147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67423,11 +67423,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 997651142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b29626a7421df459ae01b8480558e8, type: 3}
+  m_Script: {fileID: 11500000, guid: fedf171e5b91c044aa35e639ddb6e215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1515301156}
   damage: 1
+  delayBeforeDamage: 3
+  damageInterval: 5
   invulnerabilityDuration: 1
 --- !u!1 &1018417879
 GameObject:
@@ -83668,11 +83669,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1279960226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b29626a7421df459ae01b8480558e8, type: 3}
+  m_Script: {fileID: 11500000, guid: fedf171e5b91c044aa35e639ddb6e215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1515301156}
   damage: 1
+  delayBeforeDamage: 3
+  damageInterval: 5
   invulnerabilityDuration: 1
 --- !u!1 &1281206220
 GameObject:
@@ -94236,7 +94238,6 @@ GameObject:
   - component: {fileID: 1394844396}
   - component: {fileID: 1394844398}
   - component: {fileID: 1394844399}
-  - component: {fileID: 1394844400}
   m_Layer: 0
   m_Name: TriggerDificuldadeRespirar
   m_TagString: Untagged
@@ -94317,21 +94318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   symptom: 3
---- !u!114 &1394844400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394844395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b29626a7421df459ae01b8480558e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 1515301156}
-  damage: 1
-  invulnerabilityDuration: 1
 --- !u!1 &1407983830
 GameObject:
   m_ObjectHideFlags: 0
@@ -103885,7 +103871,6 @@ GameObject:
   - component: {fileID: 1937272727}
   - component: {fileID: 1937272729}
   - component: {fileID: 1937272730}
-  - component: {fileID: 1937272731}
   m_Layer: 0
   m_Name: TriggerDores
   m_TagString: Untagged
@@ -103966,21 +103951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   symptom: 2
---- !u!114 &1937272731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937272726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b29626a7421df459ae01b8480558e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 1515301156}
-  damage: 1
-  invulnerabilityDuration: 1
 --- !u!1001 &1941082013
 PrefabInstance:
   m_ObjectHideFlags: 0
