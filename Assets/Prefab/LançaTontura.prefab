@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2700598799556043834}
   - component: {fileID: 2190761981223101811}
   - component: {fileID: 6383057441323864176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Lan\xE7aTontura"
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
