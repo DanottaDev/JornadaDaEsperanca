@@ -6,6 +6,7 @@ public class MovePlatformY : MonoBehaviour
 {
     public float speed; // Velocidade da plataforma
     public Transform pontoA, pontoB; // Pontos entre os quais a plataforma se moverá
+    public bool isActivated = true; // Variável para saber se a plataforma está ativada
 
     private Vector3 targetPos; // Posição alvo para a plataforma
     private GameObject player; // Referência ao jogador
@@ -17,23 +18,27 @@ public class MovePlatformY : MonoBehaviour
 
     void Update()
     {
-        // Se a plataforma está perto do pontoA, muda a posição alvo para pontoB
-        if (Vector3.Distance(transform.position, pontoA.position) < 0.1f)
-            targetPos = pontoB.position;
-
-        // Se a plataforma está perto do pontoB, muda a posição alvo para pontoA
-        if (Vector3.Distance(transform.position, pontoB.position) < 0.1f)
-            targetPos = pontoA.position;
-
-        // Move a plataforma em direção à posição alvo
-        Vector3 previousPosition = transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-        Vector3 movement = transform.position - previousPosition;
-
-        // Se o jogador está na plataforma, move o jogador junto com a plataforma
-        if (player != null)
+        // Só move a plataforma se ela estiver ativada
+        if (isActivated)
         {
-            player.transform.position += movement;
+            // Se a plataforma está perto do pontoA, muda a posição alvo para pontoB
+            if (Vector3.Distance(transform.position, pontoA.position) < 0.1f)
+                targetPos = pontoB.position;
+
+            // Se a plataforma está perto do pontoB, muda a posição alvo para pontoA
+            if (Vector3.Distance(transform.position, pontoB.position) < 0.1f)
+                targetPos = pontoA.position;
+
+            // Move a plataforma em direção à posição alvo
+            Vector3 previousPosition = transform.position;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            Vector3 movement = transform.position - previousPosition;
+
+            // Se o jogador está na plataforma, move o jogador junto com a plataforma
+            if (player != null)
+            {
+                player.transform.position += movement;
+            }
         }
     }
 
