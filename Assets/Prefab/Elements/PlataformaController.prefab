@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1642845081
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7e314b9bf203eda4b8fbeed19dc7dc2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7d661f83a31dde45b32ef41fa85a79d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,12 +102,12 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.1021271, g: 0.6034504, b: 0.8018868, a: 1}
+  m_Color: {r: 0.7892601, g: 0, b: 0.9622642, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 0
+  m_LightVolumeIntensity: 0.25
+  m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 000000001b16da81c7861ed22763124f672c149e5b7af0588fd3ba195f0391a2032dd29b2fa25049
-  m_LightCookieSprite: {fileID: 21300000, guid: 7e314b9bf203eda4b8fbeed19dc7dc2b, type: 3}
+  m_LightCookieSprite: {fileID: 21300000, guid: d7d661f83a31dde45b32ef41fa85a79d, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
@@ -256,7 +256,7 @@ SpriteRenderer:
   m_SortingLayerID: -1642845081
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a68cdaa52fb3d242a565dd8e7c0bca2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0defc033a4cacc48891dc7ac4ff2ab6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -283,12 +283,12 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.8396226, g: 0.19406372, b: 0.6155443, a: 1}
+  m_Color: {r: 0, g: 0.547152, b: 0.9433962, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 0
+  m_LightVolumeIntensity: 0.25
+  m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 000000001b16da81c7861ed22763124f672c149e5b7af0588fd3ba195f0391a2032dd29b2fa25049
-  m_LightCookieSprite: {fileID: 21300000, guid: 0a68cdaa52fb3d242a565dd8e7c0bca2, type: 3}
+  m_LightCookieSprite: {fileID: 21300000, guid: d0defc033a4cacc48891dc7ac4ff2ab6, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0

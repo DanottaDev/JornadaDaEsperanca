@@ -15,6 +15,11 @@ public class UIManager : MonoBehaviour
     public Sprite fatigueIcon;
     public Sprite bonePainIcon;
     public Sprite breathingDifficultyIcon;
+    public Sprite tonturaIcon;
+    public Sprite alteraVisaoIcon;
+    public Sprite confusaoMentalIcon;
+    public Sprite perdaMemoriaIcon;
+    public Sprite fraquezaIcon;
     public Sprite tosseIcon;
 
     private void Awake()
@@ -55,6 +60,26 @@ public class UIManager : MonoBehaviour
                 symptomIcon.sprite = breathingDifficultyIcon;
                 symptomText.text = "Leah: Estou com dificuldades para respirar!";
                 break;
+            case SymptomTrigger.SymptomType.Tontura:
+                symptomIcon.sprite = tonturaIcon;
+                symptomText.text = "Atlas: Minha cabeça está rodando... o que está acontecendo?";
+                break;
+            case SymptomTrigger.SymptomType.AlteraVisao:
+                symptomIcon.sprite = alteraVisaoIcon;
+                symptomText.text = "Atlas: Minha visão está estranha... parece que estou vendo duplicado.";
+                break;
+            case SymptomTrigger.SymptomType.ConfusaoMental:
+                symptomIcon.sprite = confusaoMentalIcon;
+                symptomText.text = "Atlas: Por que tudo parece tão confuso de repente?";
+                break;
+            case SymptomTrigger.SymptomType.PerdaMemoria:
+                symptomIcon.sprite = perdaMemoriaIcon;
+                symptomText.text = "Atlas: Isso parece familiar, mas não me lembro por quê.";
+                break;
+            case SymptomTrigger.SymptomType.Fraqueza:
+                symptomIcon.sprite = fraquezaIcon;
+                symptomText.text = "Atlas: Sinto como se não tivesse forças para continuar.";
+                break;    
             case SymptomTrigger.SymptomType.Tosse:
                 symptomIcon.sprite = tosseIcon;
                 symptomText.text = "Atlas: Acho que estou começando a ficar doente. Essa tosse não é normal...";

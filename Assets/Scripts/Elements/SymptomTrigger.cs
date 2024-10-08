@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SymptomTrigger : MonoBehaviour
 {
-    public enum SymptomType { Fever, Fatigue, BonePain, BreathingDifficulty, Tosse, AlteraVisao, Tontura, PerdaMemoria, Fraqueza, ConfusaoMental}
+    public enum SymptomType { Fever, Fatigue, BonePain, BreathingDifficulty,  Tontura, AlteraVisao, ConfusaoMental, PerdaMemoria, Fraqueza, Tosse}
     public SymptomType symptom;
     private SymptomEffectController playerSymptomEffect;
 
