@@ -7,7 +7,6 @@ public class EnemyPatroller : MonoBehaviour
     public float detectionRange = 5f; // Distância de detecção do player
     public float attackRange = 2f; // Distância para iniciar o ataque
     public float patrolSpeed = 2f; // Velocidade de patrulha
-    public float chaseSpeed = 4f; // Velocidade de perseguição
     public Transform[] patrolPoints; // Pontos de patrulha
     public Animator animator; // Referência ao Animator
     public PlayerController player; // Referência ao PlayerController
@@ -16,6 +15,7 @@ public class EnemyPatroller : MonoBehaviour
     private int currentPatrolIndex = 0;
     private bool isChasing = false;
     private bool canAttack = true; // Controla se o inimigo pode atacar
+    private bool facingRight = true;
     
     void Start()
     {
@@ -30,10 +30,6 @@ public class EnemyPatroller : MonoBehaviour
         if (distanceToPlayer <= attackRange)
         {
             AttackPlayer();
-        }
-        else if (distanceToPlayer <= detectionRange)
-        {
-            ChasePlayer();
         }
         else
         {
@@ -50,6 +46,11 @@ public class EnemyPatroller : MonoBehaviour
 
         // Movimenta o inimigo até o próximo ponto de patrulha
         Transform targetPatrolPoint = patrolPoints[currentPatrolIndex];
+        
+        // Verifica a direção para flipar
+        Vector3 direction = targetPatrolPoint.position - transform.position;
+        Flip(direction.x);
+
         transform.position = Vector3.MoveTowards(transform.position, targetPatrolPoint.position, patrolSpeed * Time.deltaTime);
 
         // Verifica se chegou ao ponto de patrulha
@@ -58,16 +59,6 @@ public class EnemyPatroller : MonoBehaviour
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
             animator.SetBool("isWalking", false); // Para a animação de patrulha
         }
-    }
-
-    void ChasePlayer()
-    {
-        isChasing = true;
-        animator.SetBool("isChasing", true);
-        animator.SetBool("isAttacking", false);
-        animator.SetBool("isWalking", true); // Ativa a animação de patrulha
-        // Movimenta o inimigo em direção ao player
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, chaseSpeed * Time.deltaTime);
     }
 
     void AttackPlayer()
@@ -79,13 +70,28 @@ public class EnemyPatroller : MonoBehaviour
     animator.SetBool("isAttacking", true);
     animator.SetBool("isWalking", false); // Para a animação de patrulha
 
+    // Verifica se é necessário flipar
+    Vector3 directionToPlayer = player.transform.position - transform.position;
+    Flip(directionToPlayer.x);
+
     // Aqui o inimigo ataca e causa dano ao player
-    player.TakeDamage(1); // Causa 10 de dano ao player, por exemplo
+    player.TakeDamage(1); // Causa 1 de dano ao player, por exemplo
 
     canAttack = false; // Bloqueia novos ataques
     StartCoroutine(ResetAttackCooldown()); // Reinicia o cooldown do ataque
 }
 
+// Função para flipar o inimigo
+    void Flip(float moveDirection)
+    {
+        if ((moveDirection > 0 && !facingRight) || (moveDirection < 0 && facingRight))
+        {
+            facingRight = !facingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1; // Inverte o eixo X
+            transform.localScale = localScale;
+        }
+    }
 private IEnumerator ResetAttackCooldown()
 {
     yield return new WaitForSeconds(attackCooldown); // Aguarda o tempo do cooldown
