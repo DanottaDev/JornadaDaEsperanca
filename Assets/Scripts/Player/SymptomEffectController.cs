@@ -32,6 +32,10 @@ public class SymptomEffectController : MonoBehaviour
                 fatigueEffect.Play();
                 playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
                 break;
+            case SymptomTrigger.SymptomType.Fadiga:
+                fatigueEffect.Play();
+                playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
+                break;
             case SymptomTrigger.SymptomType.BonePain:
                 playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
                 playerController.jumpForce = originalJumpForce * 0.75f; // Reduce jump force by 25%
@@ -42,6 +46,13 @@ public class SymptomEffectController : MonoBehaviour
                 break;
             case SymptomTrigger.SymptomType.Tosse:
                 TosseEffect.Play();
+                break;
+            case SymptomTrigger.SymptomType.PerdaPeso:
+                playerController.speed = (int)(originalSpeed * 1.25f); // Aumento de speed em 25%
+                break;
+            case SymptomTrigger.SymptomType.Cansaco:
+                playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
+                playerController.jumpForce = originalJumpForce * 0.75f; // Reduce jump force by 25%
                 break;
         }
     }
