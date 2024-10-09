@@ -45,12 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPositions:
-  - {x: 62, y: -1.5}
-  - {x: 64, y: -1.5}
-  - {x: 59, y: -1.5}
-  - {x: 54, y: -1.5}
-  - {x: 52, y: -1.5}
-  - {x: 57, y: -1.5}
+  - {x: 62, y: -1.1}
+  - {x: 64, y: -1.1}
+  - {x: 68, y: -1.1}
+  - {x: 72, y: -1.1}
+  - {x: 76, y: -1.1}
+  - {x: 80, y: -1}
   airZonePrefab: {fileID: 1728548770789185900, guid: 6d1862a1252ec8d4c8eddff639386f49, type: 3}
   spawnIntervalMin: 3
   spawnIntervalMax: 5
