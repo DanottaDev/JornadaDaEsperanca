@@ -84425,17 +84425,17 @@ MonoBehaviour:
   fatigueIcon: {fileID: 1108101169, guid: 78388cfd5d936d0449e7db688cc9ec59, type: 3}
   bonePainIcon: {fileID: 1090892073, guid: 78388cfd5d936d0449e7db688cc9ec59, type: 3}
   breathingDifficultyIcon: {fileID: -916734598, guid: 78388cfd5d936d0449e7db688cc9ec59, type: 3}
-  tonturaIcon: {fileID: 0}
-  alteraVisaoIcon: {fileID: 0}
-  confusaoMentalIcon: {fileID: 0}
-  perdaMemoriaIcon: {fileID: 0}
-  fraquezaIcon: {fileID: 0}
-  tosseIcon: {fileID: 21300000, guid: 3fa1a260417605347bf0f8e705145eee, type: 3}
-  febreIcon: {fileID: 0}
-  fadigaIcon: {fileID: 0}
-  perdaPesoIcon: {fileID: 0}
-  faltaArIcon: {fileID: 0}
-  cansacoIcon: {fileID: 0}
+  tonturaIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  alteraVisaoIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  confusaoMentalIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  perdaMemoriaIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  fraquezaIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  tosseIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  febreIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  fadigaIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  perdaPesoIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  faltaArIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
+  cansacoIcon: {fileID: -7544462680099795708, guid: bf16436f2e121c6419787e061162f094, type: 3}
 --- !u!1 &2048738737
 GameObject:
   m_ObjectHideFlags: 0
