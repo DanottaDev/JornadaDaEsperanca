@@ -13650,12 +13650,24 @@ PrefabInstance:
       value: PotionHeal (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.64673
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.517221
+      value: -23.284
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18961,6 +18973,10 @@ PrefabInstance:
     - target: {fileID: 7079507369259272749, guid: e2192354437524b44a1a3fdc73bf5b6e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045100343545746484, guid: e2192354437524b44a1a3fdc73bf5b6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.75
       objectReference: {fileID: 0}
     - target: {fileID: 8045100343545746484, guid: e2192354437524b44a1a3fdc73bf5b6e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35836,8 +35852,8 @@ Transform:
   m_GameObject: {fileID: 453471815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2166672, y: 0.46257377, z: 0.0538648}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -2.2166672, y: 0.32999992, z: 0.0538648}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 50659966}
@@ -40801,12 +40817,24 @@ PrefabInstance:
       value: PotionHeal (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: -108.50673
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -25.05722
+      value: -24.824
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -45963,6 +45991,171 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7403027862574340212, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
   m_PrefabInstance: {fileID: 173324346889906992}
   m_PrefabAsset: {fileID: 0}
+--- !u!43 &520381040
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.16000009, y: 0.16000009, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 704
+    _typelessdata: 10d7233e10d723be000000000000803f00000080000000800000008010d7233e10d723be10d7233e10d723be10d7233e10d7233e00000000000000800000803f000000800000008010d7233e10d7233e10d7233e10d7233e10d7233e00000000000000000000803f00000080000000800000008010d7233e10d7233e10d7233e10d723be0000000010d723be0000000000000080000080bf000000000000008010d7233e10d723be10d723be10d723be0000000010d7233e00000000000000800000803f000000800000008010d723be10d7233e10d7233e10d7233e10d723be10d723be0000000000000080000080bf000000000000008010d723be10d723be10d723be10d723be10d723be0000000000000000000080bf00000080000000800000008010d723be10d723be10d723be10d7233e10d723be10d7233e00000000000080bf00000080000000800000008010d723be10d7233e10d723be10d7233e10d7233e00000000000000000000803f00000080000000800000008010d7233e10d7233e10d7233e10d723be10d7233e10d723be0000000000000080000080bf000000000000008010d7233e10d723be10d7233e10d723be10d7233e10d7233e000000000000803f00000080000000800000008010d7233e10d7233e10d7233e10d7233e0000000010d7233e00000000000000800000803f000000800000008010d723be10d7233e10d7233e10d7233e0000000010d723be0000000000000080000080bf000000000000008010d7233e10d723be10d723be10d723be10d723be10d7233e00000000000000800000803f000000800000008010d723be10d7233e10d723be10d7233e10d723be10d723be00000000000080bf00000080000000800000008010d723be10d723be10d723be10d723be10d723be0000000000000000000080bf00000080000000800000008010d723be10d723be10d723be10d7233e
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.16000009, y: 0.16000009, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!4 &559680982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5327763729616747326, guid: d2db4cd817d3112439cd8602d794373b, type: 3}
@@ -46718,8 +46911,8 @@ Transform:
   m_GameObject: {fileID: 599423996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.0966682, y: 0.46257377, z: 0.0538648}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -7.0966682, y: 0.33, z: 0.0538648}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 50659966}
@@ -47293,12 +47486,24 @@ PrefabInstance:
       value: PotionHeal (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.09326
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.96722
+      value: -22.734
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47711,171 +47916,6 @@ MonoBehaviour:
   - {x: -0.20592934, y: -0.15206176, z: 0}
   - {x: -0.20458657, y: 0.053269025, z: 0}
   - {x: -0.4922941, y: 0.053269047, z: 0}
---- !u!43 &717826796
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.16000009, y: 0.16000009, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: 10d7233e10d723be000000000000803f00000080000000800000008010d7233e10d723be10d7233e10d723be10d7233e10d7233e00000000000000800000803f000000800000008010d7233e10d7233e10d7233e10d7233e10d7233e00000000000000000000803f00000080000000800000008010d7233e10d7233e10d7233e10d723be0000000010d723be0000000000000080000080bf000000000000008010d7233e10d723be10d723be10d723be0000000010d7233e00000000000000800000803f000000800000008010d723be10d7233e10d7233e10d7233e10d723be10d723be0000000000000080000080bf000000000000008010d723be10d723be10d723be10d723be10d723be0000000000000000000080bf00000080000000800000008010d723be10d723be10d723be10d7233e10d723be10d7233e00000000000080bf00000080000000800000008010d723be10d7233e10d723be10d7233e10d7233e00000000000000000000803f00000080000000800000008010d7233e10d7233e10d7233e10d723be10d7233e10d723be0000000000000080000080bf000000000000008010d7233e10d723be10d7233e10d723be10d7233e10d7233e000000000000803f00000080000000800000008010d7233e10d7233e10d7233e10d7233e0000000010d7233e00000000000000800000803f000000800000008010d723be10d7233e10d7233e10d7233e0000000010d723be0000000000000080000080bf000000000000008010d7233e10d723be10d723be10d723be10d723be10d7233e00000000000000800000803f000000800000008010d723be10d7233e10d723be10d7233e10d723be10d723be00000000000080bf00000080000000800000008010d723be10d723be10d723be10d723be10d723be0000000000000000000080bf00000080000000800000008010d723be10d723be10d723be10d7233e
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.16000009, y: 0.16000009, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &718508268
 GameObject:
   m_ObjectHideFlags: 0
@@ -48738,12 +48778,24 @@ PrefabInstance:
       value: PotionHeal (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.533279
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.98722
+      value: -20.754
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48893,12 +48945,24 @@ PrefabInstance:
       value: PotionHeal (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.35327
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.96722
+      value: -22.734
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49203,12 +49267,24 @@ PrefabInstance:
       value: PotionHeal (5)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.08328
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.56722
+      value: -22.334
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55972,12 +56048,24 @@ PrefabInstance:
       value: PotionHeal (8)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: -93.79673
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.003222
+      value: -22.77
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -61114,12 +61202,24 @@ PrefabInstance:
       value: PotionHeal (7)
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: -103.696724
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.547222
+      value: -23.314001
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72695,6 +72795,10 @@ PrefabInstance:
       value: -94690
       objectReference: {fileID: 0}
     - target: {fileID: 2989347432801413540, guid: 449d0aaffdbaa8f4eb49119a9c286e85, type: 3}
+      propertyPath: canAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989347432801413540, guid: 449d0aaffdbaa8f4eb49119a9c286e85, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1835859370}
@@ -72972,7 +73076,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: d324af5908f9ad648ae4e2e136185a6b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -74030,7 +74134,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 5ca516442f9845b41a01a42484e4c772, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -81915,7 +82019,7 @@ Transform:
   m_GameObject: {fileID: 1863231454}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6366653, y: 0.735, z: 0.0538648}
+  m_LocalPosition: {x: -4.6366653, y: 0.71, z: 0.0538648}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -82373,12 +82477,24 @@ PrefabInstance:
       value: PotionHeal
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.00824
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.517221
+      value: -23.284
       objectReference: {fileID: 0}
     - target: {fileID: 5561924671846819106, guid: 59c89d2dd8d34ae4daeb473f520e5667, type: 3}
       propertyPath: m_LocalPosition.z
