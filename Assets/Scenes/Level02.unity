@@ -62803,7 +62803,7 @@ Transform:
   m_GameObject: {fileID: 562717605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00999999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -200466,30 +200466,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 532388407481070954, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 104
-      objectReference: {fileID: 0}
-    - target: {fileID: 859790268280207363, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
-      propertyPath: m_fontSize
-      value: 52
-      objectReference: {fileID: 0}
     - target: {fileID: 859790268280207363, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
       propertyPath: m_fontSizeBase
-      value: 52
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718907270140202966, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718907270140202966, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2952979741903724279, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 888849469}
-    - target: {fileID: 3503519036016460531, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
-      propertyPath: m_fontSize
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503519036016460531, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3503519036016460531, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
       propertyPath: m_fontSizeBase
       value: 42
@@ -200497,10 +200489,6 @@ PrefabInstance:
     - target: {fileID: 3762249088221595328, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4846212049393496485, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7403027862574340212, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
       propertyPath: m_IsActive
@@ -200529,14 +200517,6 @@ PrefabInstance:
     - target: {fileID: 7798111026716812103, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
       propertyPath: m_Color.r
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8460330134783372703, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 551
-      objectReference: {fileID: 0}
-    - target: {fileID: 8460330134783372703, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -367
       objectReference: {fileID: 0}
     - target: {fileID: 8614059464871668123, guid: 6f41b4215e8546b4f924a2a59a3b6e26, type: 3}
       propertyPath: m_Pivot.x
