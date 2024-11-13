@@ -54,6 +54,9 @@ public class SymptomEffectController : MonoBehaviour
                 playerController.speed = (int)(originalSpeed * 0.75f); // Reduce speed by 25%
                 playerController.jumpForce = originalJumpForce * 0.75f; // Reduce jump force by 25%
                 break;
+            case SymptomTrigger.SymptomType.Febre:
+                feverEffect.Play();
+                break;    
         }
     }
 

@@ -35,12 +35,12 @@ public class frogMove : MonoBehaviour
         if (moveDirection.x > 0)
         {
             // Se movendo para a direita, ajuste normal
-            transform.localScale = new Vector3(2, 2, 1); // Normal
+            transform.localScale = new Vector3(3, 3, 1); // Normal
         }
         else if (moveDirection.x < 0)
         {
             // Se movendo para a esquerda, flip
-            transform.localScale = new Vector3(-2, 2, 1); // Flipado
+            transform.localScale = new Vector3(-3, 3, 1); // Flipado
         }
     }
 }
