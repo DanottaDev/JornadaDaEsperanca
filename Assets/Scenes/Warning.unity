@@ -677,8 +677,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 910.77, y: 634.97}
+  m_AnchoredPosition: {x: 48.75, y: 0}
+  m_SizeDelta: {x: 1008.26, y: 634.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993849007
 MonoBehaviour:
@@ -702,10 +702,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "O que voc\xEA ver no jogo pode refletir sinais reais de um problema s\xE9rio.
     Se voc\xEA notar que uma crian\xE7a pr\xF3xima a voc\xEA apresenta sintomas semelhantes
-    aos mostrados durante a jornada, n\xE3o hesite em procurar um especialista.\n\nA
-    detec\xE7\xE3o precoce pode fazer toda a diferen\xE7a. Fale com um m\xE9dico
-    para um diagn\xF3stico preciso e suporte adequado.\n\nCuide, proteja e ajude.
-    Sua aten\xE7\xE3o pode salvar vidas."
+    aos mostrados durante a jornada, n\xE3o hesite em procurar um especialista.\n\nCuide,
+    proteja e ajude. Sua aten\xE7\xE3o pode salvar vidas."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7889dfadaf64a074d957dcce878fa38d, type: 2}
   m_sharedMaterial: {fileID: -5725376461756623916, guid: 7889dfadaf64a074d957dcce878fa38d, type: 2}
@@ -732,8 +730,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -768,7 +766,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -4.431732, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
