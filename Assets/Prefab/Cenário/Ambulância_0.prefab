@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 859178549948310042}
   - component: {fileID: 124902000939949603}
   - component: {fileID: 3248417045492717725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "Ambul\xE2ncia_0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
