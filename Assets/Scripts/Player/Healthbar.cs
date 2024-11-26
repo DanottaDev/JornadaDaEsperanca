@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,14 @@ public class HealthBar : MonoBehaviour
 {
     public Slider slider;
     public Image fill; // Referência ao preenchimento da barra
+    private Coroutine flashCoroutine; // Referência para a Coroutine em execução
+    private Color originalColor; // Armazena a cor original permanentemente
+
+    private void Start()
+    {
+        // Salva a cor original da barra no início
+        originalColor = fill.color;
+    }
 
     public void SetMaxHealth(int health)
     {
@@ -21,17 +28,21 @@ public class HealthBar : MonoBehaviour
 
     public void FlashHealthBar()
     {
-        StartCoroutine(Flash());
+        // Interrompe o Flash atual, se necessário
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+        }
+        flashCoroutine = StartCoroutine(Flash());
     }
 
     private IEnumerator Flash()
     {
-        Color originalColor = fill.color;
-        fill.color = Color.red;
+        fill.color = Color.red; // Define a cor como vermelha
 
         yield return new WaitForSeconds(0.1f);
 
-        fill.color = originalColor;
+        fill.color = originalColor; // Restaura a cor original
 
         for (int i = 0; i < 2; i++)
         {
@@ -40,5 +51,9 @@ public class HealthBar : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             fill.color = originalColor;
         }
+
+        // Garante a restauração da cor original no final
+        fill.color = originalColor;
+        flashCoroutine = null; // Indica que o Flash terminou
     }
 }

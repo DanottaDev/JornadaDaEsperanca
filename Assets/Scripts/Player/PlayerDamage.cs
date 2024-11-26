@@ -6,7 +6,7 @@ public class DamagePlayer : MonoBehaviour
 {
     public PlayerController playerController;
     public int damage;
-    public float invulnerabilityDuration = 1.0f; // Tempo de invulnerabilidade em segundos
+    public float invulnerabilityDuration = 2.0f; // Tempo de invulnerabilidade em segundos
     private bool isInvulnerable = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
