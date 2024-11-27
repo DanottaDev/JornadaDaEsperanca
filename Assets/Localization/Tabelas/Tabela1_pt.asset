@@ -67,6 +67,13 @@ MonoBehaviour:
     m_Localized: '- Pressione Shift ou X enquanto se move para realizar um dash.'
     m_Metadata:
       m_Items: []
+  - m_Id: 13
+    m_Localized: "O que voc\xEA ver no jogo pode refletir sinais reais de um problema
+      s\xE9rio. Se voc\xEA notar que uma crian\xE7a pr\xF3xima a voc\xEA apresenta
+      sintomas semelhantes aos mostrados durante a jornada, n\xE3o hesite em procurar
+      um especialista.\n\nCuide, proteja e ajude. Sua aten\xE7\xE3o pode salvar vidas."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

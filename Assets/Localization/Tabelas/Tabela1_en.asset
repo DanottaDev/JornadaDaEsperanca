@@ -67,6 +67,16 @@ MonoBehaviour:
     m_Localized: '- Press Shift or X while moving to perform a dash.'
     m_Metadata:
       m_Items: []
+  - m_Id: 13
+    m_Localized: 'What you see in the game may reflect real signs of a serious problem.
+      If you notice that a ]child close to you has symptoms similiar to those shown
+      during the journey, do not hesitate to seek help.
+
+
+      Care, protect and
+      help. Your attention can save lives.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

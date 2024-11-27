@@ -1,8 +1,10 @@
 #if UNITY_2020_2_OR_NEWER
-[assembly: UnityEditor.Localization]
+// Verifique se o pacote de Localização foi instalado corretamente
+using UnityEditor;
 #else
 using UnityEngine;
 using UnityEditor;
+
 
 namespace UnityEditor.Timeline
 {

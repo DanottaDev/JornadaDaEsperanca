@@ -91,7 +91,7 @@ public class UIManager : MonoBehaviour
                 break;
             case SymptomTrigger.SymptomType.PerdaPeso:
                 symptomIcon.sprite = perdaPesoIcon;
-                symptomText.text = "Celine: Eu costumava adorar comer aqui... Mas agora, nem consigo pensar em comida.";
+                symptomText.text = "Celine: Eu costumava adorar comer aqui... Mas ultimamente, nem consigo pensar em comida.";
                 break;      
             case SymptomTrigger.SymptomType.Febre:
                 symptomIcon.sprite = febreIcon;
