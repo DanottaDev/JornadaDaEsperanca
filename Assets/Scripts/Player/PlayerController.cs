@@ -334,29 +334,47 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator FlashRed()
+    private Coroutine flashCoroutine;
+
+private IEnumerator FlashRed()
+{
+    // Salva a cor original do sprite
+    Color originalColor = spriteRenderer.color;
+
+    // Define a cor vermelha
+    spriteRenderer.color = Color.red;
+
+    // Espera um breve momento
+    yield return new WaitForSeconds(0.1f);
+
+    // Restaura a cor original
+    spriteRenderer.color = originalColor;
+
+    // Repete o efeito de piscar algumas vezes
+    for (int i = 0; i < 3; i++)
     {
-        // Salva a cor original do sprite
-        Color originalColor = spriteRenderer.color;
-
-        // Define a cor vermelha
-        spriteRenderer.color = Color.red;
-
-        // Espera um breve momento
         yield return new WaitForSeconds(0.1f);
-
-        // Restaura a cor original
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = originalColor;
-
-        // Repete o efeito de piscar algumas vezes
-        for (int i = 0; i < 3; i++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            spriteRenderer.color = Color.red;
-            yield return new WaitForSeconds(0.1f);
-            spriteRenderer.color = originalColor;
-        }
     }
+
+    // Libera a referência à coroutine
+    flashCoroutine = null;
+}
+
+public void StartFlashRed()
+{
+    // Interrompe a coroutine ativa, se existir
+    if (flashCoroutine != null)
+    {
+        StopCoroutine(flashCoroutine);
+    }
+
+    // Inicia uma nova coroutine
+    flashCoroutine = StartCoroutine(FlashRed());
+}
+
 
     public void Heal(int amount)
     {

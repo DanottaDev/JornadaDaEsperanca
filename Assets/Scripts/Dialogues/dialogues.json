@@ -1,0 +1,52 @@
+{
+  "dialogues": [
+    {
+      "name": "Mãe",
+      "expression": "Character1F_3_talk_3",
+      "textsByLanguage": {
+        "pt": "Leah, querida, você ainda está aqui? Já está quase na hora da aula!",
+        "en": "Leah, dear, are you still here? It's almost time for school!"
+      }
+    },
+    {
+      "name": "Leah",
+      "expression": "leah_expressions (1)_0",
+      "textsByLanguage": {
+        "pt": "Eu sei, mamãe, só estava terminando de arrumar minhas coisas.",
+        "en": "I know, Mom, I was just finishing packing my things."
+      }
+    },
+    {
+      "name": "Mãe",
+      "expression": "Character1F_3_talk_1",
+      "textsByLanguage": {
+        "pt": "Vamos, querida, você não pode se atrasar no primeiro dia de aula.",
+        "en": "Come on, dear, you can't be late on your first day of school."
+      }
+    },
+    {
+      "name": "Leah",
+      "expression": "leah_expressions (1)_1",
+      "textsByLanguage": {
+        "pt": "Já estou indo, mamãe!",
+        "en": "I'm on my way, Mom!"
+      }
+    },
+    {
+      "name": "Mãe",
+      "expression": "Character1F_3_idle_4",
+      "textsByLanguage": {
+        "pt": "Ótimo! E não esqueça de levar seu lanche. Boa sorte na escola, Leah. Tenho certeza de que será um dia maravilhoso!",
+        "en": "Great! And don't forget to take your lunch. Good luck at school, Leah. I'm sure it will be a wonderful day!"
+      }
+    },
+    {
+      "name": "Leah",
+      "expression": "leah_expressions (1)_1",
+      "textsByLanguage": {
+        "pt": "Obrigada, mamãe! Até mais tarde!",
+        "en": "Thanks, Mom! See you later!"
+      }
+    }
+  ]
+}
