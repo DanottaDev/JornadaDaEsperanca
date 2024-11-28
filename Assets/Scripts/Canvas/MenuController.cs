@@ -23,4 +23,11 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
     
+    private bool isFullscreen = true;
+
+    public void ToggleScreenMode()
+    {
+        isFullscreen = !isFullscreen;
+        Screen.fullScreen = isFullscreen;
+    }
 }
